@@ -1,3 +1,4 @@
+/********** GENERAL **********/
 :root {
   --white: white;
   --black: black;
@@ -9,98 +10,108 @@
   --gray: gray;
 }
 
+html,
 body {
   background-color: var(--white);
+  font-size: 1.45rem;
 }
+
+/********** main ***********/
 p {
   margin: 0;
+  text-align: center;
 }
-button {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  font-size: 3rem;
+
+/* title */
+.div {
+  border: 1px solid var(--green);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-h1 {
-  text-align: center;
-  font-size: 4rem;
-  margin: 0.75rem;
+#title {
+  font-size: 1.45rem;
+  margin: 0.25rem;
 }
-#playerInfo1 {
+
+/***** sect1 *****/
+#sect1 {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  border: 3px solid red;
-  font-size: 5rem;
+  grid-template-columns: 1fr 3fr 1fr;
 }
-/* SECTIMES */
+
+/* secTimes */
 #secTimes {
-  text-align: center;
-  border: 1px solid red;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
-#currentTime,
-#elapsedTime,
-#nextBreak,
-#buyins,
-#rebuys,
-#addons {
-  border: 1px solid blue;
-}
 
-/* MAINTIME */
+/* mainTime */
 #mainTime {
-  text-align: center;
-  border: 1px solid red;
-}
-#level {
-  font-size: 5rem;
-}
-#time {
-  font-size: 20rem;
-}
-#blinds {
-  font-size: 10rem;
-}
-#nextBlinds {
-  font-size: 3rem;
+  display: grid;
+  grid-template-rows: 1fr 5fr 2fr 1fr;
 }
 
-/* ENTRIES */
+/* entries */
 #entries {
-  text-align: center;
-  border: 1px solid red;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-#playerInfo2 {
-  border: 3px solid var(--purple);
+/***** sect2 *****/
+#sect2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  text-align: center;
-  font-size: 2.5rem;
-}
-#left {
-  border: 1px solid var(--gray);
-  font-size: 5rem;
-}
-#avg {
-  border: 1px solid var(--gray);
-  font-size: 5rem;
 }
 #controlPanel {
-  border: 1px solid var(--red);
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
 }
-#entriesPanel,
-#leftPanel,
-#rebuysPanel,
-#addonsPanel {
+.panel {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  padding: 0.25rem;
 }
+.edit {
+  width: 7rem;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--white);
+  width: 1.45rem;
+  height: 1.45rem;
+  font-size: 1.25rem;
+}
+.reduce {
+  border: 1px solid var(--red);
+}
+
+.add {
+  border: 1px solid var(--green);
+}
+
+/* Pantallas de 1080p */
+/* @media (min-width: 1281px) and (max-width: 1920px) {
+  body {
+    font-size: 1rem;
+  }
+} */
+
+/* Pantallas de 2K */
+/* @media (min-width: 1921px) and (max-width: 2560px) {
+  body {
+    font-size: 1.125rem;
+  }
+} */
+
+/* Pantallas 4K */
+/* @media (min-width: 2561px) {
+  body {
+    font-size: 1.25rem;
+  }
+} */

@@ -8,50 +8,84 @@
   <!-- eliminar hacia arriba -->
   <body>
     <main>
-      <h1 id="title">El Riverazo</h1>
-      <section id="playerInfo1">
+      <section class="div row">
+        <p id="title">
+          Stack inicial: 20.000 p | Entrada/recompra/add-on: 25€ | Recompras
+          ilimitadas (Nivel 8 incluído)
+        </p>
+      </section>
+      <section id="sect1">
         <section id="secTimes">
-          <p id="currentTime">Hora<br />21:00 h</p>
-          <p id="elapsedTime">Llevas jugando<br />03:57 h</p>
-          <p id="nextBreak">Descanso en<br />44:34 min</p>
+          <div class="div">
+            <p id="currentTime">Hora<br />21:00 h</p>
+          </div>
+          <div class="div">
+            <p id="elapsedTime">En juego<br />03:57 h</p>
+          </div>
+          <div class="div">
+            <p id="nextBreak">Descanso en<br />44:34 min</p>
+          </div>
         </section>
         <section id="mainTime">
-          <p id="level">Nivel 3</p>
-          <p id="time">19:12</p>
-          <p id="blinds">100/200</p>
-          <p id="nextBlinds">Siguiente nivel: 200/400</p>
+          <div class="div">
+            <p id="level">Nivel 3</p>
+          </div>
+          <div class="div">
+            <p id="time">19:12</p>
+          </div>
+          <div class="div">
+            <p id="blinds">10.000/20.000 ante 20.000</p>
+          </div>
+          <div class="div">
+            <p id="nextBlinds">Siguiente nivel: 20.000/40.000 ante 40.000</p>
+          </div>
         </section>
         <section id="entries">
-          <p id="buyins">Entradas<br />50</p>
-          <p id="rebuys">Recompras<br />19</p>
-          <p id="addons">Add-ons<br />0</p>
+          <div class="div">
+            <p id="buyins">Entradas<br />50</p>
+          </div>
+          <div class="div">
+            <p id="rebuys">Recompras<br />19</p>
+          </div>
+          <div class="div">
+            <p id="addons">Add-ons<br />0</p>
+          </div>
         </section>
       </section>
-      <section id="playerInfo2">
-        <p id="left">Jugadores<br />13/15</p>
-        <p id="avg">Media<br />20.000</p>
-        <div id="controlPanel">
-          <div id="entriesPanel">
-            <button id="e-">-</button>
-            <p>Entradas</p>
-            <button id="e+">+</button>
+      <section id="sect2">
+        <div class="div">
+          <p id="left">Jugadores<br />13/15</p>
+        </div>
+        <div class="div">
+          <p id="avg">Media<br />20.000</p>
+        </div>
+        <div id="controlPanel" class="div">
+          <div id="entriesPanel" class="panel">
+            <button id="e-" class="reduce">-</button>
+            <p class="edit">Entradas</p>
+            <button id="e+" class="add">+</button>
           </div>
-          <div id="leftPanel">
-            <button id="l-">-</button>
-            <p>Jugadores</p>
-            <button id="l+">+</button>
+          <div id="leftPanel" class="panel">
+            <button id="l-" class="reduce">-</button>
+            <p class="edit">Jugadores</p>
+            <button id="l+" class="add">+</button>
           </div>
-          <div id="rebuysPanel">
-            <button id="r-">-</button>
-            <p>Recompras</p>
-            <button id="r+">+</button>
+          <div id="rebuysPanel" class="panel">
+            <button id="r-" class="reduce">-</button>
+            <p class="edit">Recompras</p>
+            <button id="r+" class="add">+</button>
           </div>
-          <div id="addonsPanel">
-            <button id="a-">-</button>
-            <p>Add-ons</p>
-            <button id="a+">+</button>
+          <div id="addonsPanel" class="panel">
+            <button id="a-" class="reduce">-</button>
+            <p class="edit">Add-ons</p>
+            <button id="a+" class="add">+</button>
           </div>
         </div>
+      </section>
+      <section class="div">
+        <p id="prizes">
+          1º: 750 € | 2º: 650 € | 3º: 550 € | 4º: 450 € | 5º: 350 € | 6º: 250 € | 7º: 150 € | 8º: 100 €
+        </p>
       </section>
     </main>
   </body>
