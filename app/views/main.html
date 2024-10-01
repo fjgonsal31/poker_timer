@@ -8,83 +8,141 @@
   <!-- eliminar hacia arriba -->
   <body>
     <main>
-      <section class="div row">
+      <!-- title -->
+      <section class="div">
+        <button id="settings">⚙️</button>
         <p id="title">
-          Stack inicial: 20.000 p | Entrada/recompra/add-on: 25€ | Recompras
-          ilimitadas (Nivel 8 incluído)
+          Stack inicial:
+          <span id="sT1" class="bold">20.000</span>
+          | Entrada/recompra/add-on:
+          <span id="sT2" class="bold">25 €</span>
+          | Recompras ilimitadas hasta
+          <span id="sT3" class="bold">Nivel 8</span>
+          (incluído)
         </p>
       </section>
+      <!-- sect1 -->
       <section id="sect1">
+        <!-- secTimes -->
         <section id="secTimes">
           <div class="div">
-            <p id="currentTime">Hora<br />21:00 h</p>
+            <p id="currentTime">
+              <span id="sCT" class="text1">Hora</span>
+              <br />21:00
+            </p>
           </div>
           <div class="div">
-            <p id="elapsedTime">En juego<br />03:57 h</p>
+            <p id="elapsedTime">
+              <span id="sET1" class="text1">En juego</span>
+              <br />03:57
+              <span id="sET2" class="text1">h</span>
+            </p>
           </div>
           <div class="div">
-            <p id="nextBreak">Descanso en<br />44:34 min</p>
+            <p id="nextBreak">
+              <span id="sNBr1" class="text1">Descanso en</span>
+              <br />44:34
+              <span id="sNBr2" class="text1">min</span>
+            </p>
           </div>
         </section>
+        <!-- mainTime -->
         <section id="mainTime">
-          <div class="div">
+          <div class="div rowAround">
+            <button id="lev-" class="reduce round">-</button>
             <p id="level">Nivel 3</p>
+            <button id="lev+" class="add round">+</button>
           </div>
-          <div class="div">
+          <div class="div time">
             <p id="time">19:12</p>
+            <div class="rowCenter">
+              <button id="play">Empezar</button>
+              <button id="pause">Pausar</button>
+            </div>
+          </div>
+          <div class="div blinds">
+            <p id="blinds">10.000/20.000</p>
+            <p id="ante">
+              <span id="sA1" class="noBold">ante</span>
+              <span id="sA2">20.000</span>
+            </p>
           </div>
           <div class="div">
-            <p id="blinds">10.000/20.000 ante 20.000</p>
-          </div>
-          <div class="div">
-            <p id="nextBlinds">Siguiente nivel: 20.000/40.000 ante 40.000</p>
+            <p id="nextBlinds">
+              <span id="sNBl1" class="text2">Siguiente nivel:</span>
+              20.000/40.000
+              <span id="sNBl2" class="text2">ante</span>
+              <span id="sNBl3" class="text3">40.000</span>
+            </p>
           </div>
         </section>
+        <!-- entries -->
         <section id="entries">
           <div class="div">
-            <p id="buyins">Entradas<br />50</p>
+            <p id="buyins">
+              <span id="sB1" class="text1">Entradas</span>
+              <br />15
+            </p>
           </div>
           <div class="div">
-            <p id="rebuys">Recompras<br />19</p>
+            <p id="rebuys">
+              <span id="sR1" class="text1">Recompras</span>
+              <br />19
+            </p>
           </div>
           <div class="div">
-            <p id="addons">Add-ons<br />0</p>
+            <p id="addons">
+              <span id="sAd" class="text1">Add-ons</span>
+              <br />0
+            </p>
           </div>
         </section>
       </section>
+      <!-- sect2 -->
       <section id="sect2">
         <div class="div">
-          <p id="left">Jugadores<br />13/15</p>
+          <p id="avg">
+            <span id="sAvg" class="text1">Media</span>
+            <br />20.000
+          </p>
+        </div>
+        <!-- controlPanel -->
+        <div id="controlPanel" class="div">
+          <div id="row1" class="panel">
+            <button id="e-" class="reduce round">-</button>
+            <p class="edit">Entradas</p>
+            <button id="e+" class="add round">+</button>
+            <button id="l-" class="reduce round">-</button>
+            <p class="edit">Jugadores</p>
+            <button id="l+" class="add round">+</button>
+          </div>
+          <div id="row2" class="panel">
+            <button id="r-" class="reduce round">-</button>
+            <p class="edit">Recompras</p>
+            <button id="r+" class="add round">+</button>
+            <button id="a-" class="reduce round">-</button>
+            <p class="edit">Add-ons</p>
+            <button id="a+" class="add round">+</button>
+          </div>
         </div>
         <div class="div">
-          <p id="avg">Media<br />20.000</p>
-        </div>
-        <div id="controlPanel" class="div">
-          <div id="entriesPanel" class="panel">
-            <button id="e-" class="reduce">-</button>
-            <p class="edit">Entradas</p>
-            <button id="e+" class="add">+</button>
-          </div>
-          <div id="leftPanel" class="panel">
-            <button id="l-" class="reduce">-</button>
-            <p class="edit">Jugadores</p>
-            <button id="l+" class="add">+</button>
-          </div>
-          <div id="rebuysPanel" class="panel">
-            <button id="r-" class="reduce">-</button>
-            <p class="edit">Recompras</p>
-            <button id="r+" class="add">+</button>
-          </div>
-          <div id="addonsPanel" class="panel">
-            <button id="a-" class="reduce">-</button>
-            <p class="edit">Add-ons</p>
-            <button id="a+" class="add">+</button>
-          </div>
+          <p id="left">
+            <span id="sL1" class="text1">Jugadores</span>
+            <br />13/15
+          </p>
         </div>
       </section>
+      <!-- prizes -->
       <section class="div">
         <p id="prizes">
-          1º: 750 € | 2º: 650 € | 3º: 550 € | 4º: 450 € | 5º: 350 € | 6º: 250 € | 7º: 150 € | 8º: 100 €
+          1º: <span class="text4">700 €</span> | 2º:
+          <span class="text4">700 €</span> | 3º:
+          <span class="text4">700 €</span> | 4º:
+          <span class="text4">700 €</span> | 5º:
+          <span class="text4">700 €</span> | 6º:
+          <span class="text4">700 €</span> | 7º:
+          <span class="text4">700 €</span> | 8º:
+          <span class="text4">700 €</span>
         </p>
       </section>
     </main>
