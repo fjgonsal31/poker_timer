@@ -6,7 +6,8 @@ return [
     'home' => $root . '/public/index.php',
     'vHead' => $root . '/app/views/head.html',
     'vMain' => $root . '/app/views/main.html',
+    'vModal' => $root . '/app/views/modal.html',
     'routes' => $root . '/config/routes.php',
     'sMain' => $root . '/public/assets/css/main.css',
-    'routes' => $root . '/config/routes.php',
+    'routes' => $root . '/config/routes.php'
 ];

@@ -1,0 +1,73 @@
+/********** GENERAL **********/
+:root {
+  --white: white;
+  --black: black;
+  --red: red;
+  --blue: blue;
+  --green: green;
+  --yellow: yellow;
+  --purple: purple;
+  --orange: rgb(255, 136, 0);
+  --gray: gray;
+}
+
+.modal {
+  /* display: none; */
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--white);
+  margin: 5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--gray);
+  width: 90%;
+  height: 80%;
+  border-radius: 1rem;
+}
+
+#acept,
+#cancel {
+  border-radius: 1rem;
+  background-color: var(--white);
+  margin: 0 0.5rem 0 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  height: 2rem;
+  width: auto;
+  font-size: 1rem;
+}
+#acept {
+  border: 3px solid var(--green);
+}
+#cancel {
+  border: 3px solid var(--red);
+}
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  text-align: center;
+}
+#infoMtt,
+#blindsMtt {
+  display: grid;
+  grid-template-columns: auto;
+  border: 1px solid red;
+}
+#initGame,
+#endRebuys {
+  display: grid;
+  width: max-content;
+  border: 1px solid green;
+  justify-self: center;
+}
+legend {
+  font-size: 2rem;
+}

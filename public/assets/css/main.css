@@ -7,24 +7,16 @@
   --green: green;
   --yellow: yellow;
   --purple: purple;
+  --orange: rgb(255, 136, 0);
   --gray: gray;
 }
 
 /* Pantallas de 720p */
-/* @media (max-width: 720px) */
 
 html,
 body {
   background-color: var(--white);
 }
-
-/********** main ***********/
-p {
-  margin: 0;
-  text-align: center;
-}
-
-/* title */
 .div {
   display: flex;
   justify-content: center;
@@ -32,144 +24,35 @@ p {
   border: 1px solid var(--black);
   position: relative;
 }
-#settings {
-  border: none;
-  background-color: var(--white);
-  cursor: pointer;
-  font-size: 1.5rem;
-  position: absolute;
-  padding: 0;
-  top: 0;
-  left: 0;
-}
-#title {
-  font-size: 1.75rem;
-  margin-left: 1.5rem;
-}
-.bold {
-  font-weight: bold;
-}
-
-/***** sect1 *****/
-#sect1 {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-}
-
-/* secTimes */
-#secTimes {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  font-size: 3.25rem;
-}
-.text1 {
-  font-size: 2.25rem;
-  font-weight: normal;
-}
-
-/* mainTime */
-#mainTime {
-  display: grid;
-  grid-template-rows: auto auto auto auto;
-}
 .rowAround {
   display: flex;
   justify-content: space-around;
-}
-#level {
-  font-size: 3rem;
-}
-.time {
-  display: grid;
-  grid-template-rows: auto auto;
-}
-#time {
-  font-size: 14rem;
-  font-weight: bolder;
 }
 .rowCenter {
   display: flex;
   justify-content: center;
   margin-bottom: 0.25rem;
 }
-#play,
-#pause {
-  border-radius: 1rem;
-  background-color: var(--white);
-  margin: 0 0.5rem 0 0.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  height: 2rem;
-}
-#play {
-  border: 3px solid var(--green);
-}
-#pause {
-  border: 3px solid var(--gray);
-}
-.blinds,
-#nextBlinds {
-  font-weight: bolder;
-}
-.blinds {
-  display: grid;
-  grid-template-rows: auto auto;
-  font-size: 4rem;
-}
-#ante {
-  display: flex;
-  justify-content: center;
-  gap: 0.35rem;
-  font-size: 2.1rem;
-}
-#nextBlinds {
-  font-size: 2.25rem;
-}
-.noBold {
-  font-weight: normal;
-}
-.text2 {
-  font-size: 1.75rem;
-  font-weight: normal;
-}
-.text3 {
-  font-size: 1.9rem;
-  font-weight: bolder;
-}
-
-/* entries */
-#entries {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  font-size: 3.25rem;
-}
-
-/***** sect2 *****/
-#sect2 {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  font-size: 2.75rem;
-}
-#left,
-#avg {
-  font-size: 3.25rem;
-}
-
-/* controlPanel */
-#controlPanel {
-  display: grid;
-  grid-template-rows: auto auto;
-}
-.panel {
-  display: flex;
-  font-size: 2.25rem;
-}
 .edit {
   width: 13rem;
 }
-#l-,
-#a- {
-  margin-left: 1.5rem;
+.text1 {
+  font-size: 3.25rem;
+}
+.text2 {
+  font-size: 2.35rem;
+  font-weight: bold;
+}
+.text3 {
+  font-size: 1.85rem;
+  font-weight: bold;
+}
+.text4 {
+  font-style: italic;
+  font-weight: normal;
+}
+.text5 {
+  font-size: 1.7rem;
 }
 .round {
   display: flex;
@@ -188,98 +71,199 @@ p {
 .add {
   border: 1px solid var(--green);
 }
+.reduce:hover {
+  background-color: var(--red);
+}
+.add:hover {
+  background-color: var(--green);
+}
+p {
+  margin: 0;
+  text-align: center;
+}
+#currentTime,
+#elapsedTime,
+#nextBreak,
+#entries,
+#rebuys,
+#addons,
+#avg,
+#left {
+  font-size: 2.75rem;
+}
+
+/********** main ***********/
+
+/* title */
+#settings {
+  border: 1px solid var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  font-size: 1.45rem;
+  position: absolute;
+  padding: 0;
+  top: 0%;
+  left: 0%;
+  height: 2.1rem;
+  width: auto;
+}
+#settings:hover {
+  background-color: var(--black);
+}
+#title {
+  font-size: 1.75rem;
+  margin-left: 1.5rem;
+}
+#sT1,
+#sT2,
+#sT3 {
+  font-weight: bold;
+}
+
+/***** sect1 *****/
+#sect1 {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+/* secTimes */
+#secTimes {
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
+/* mainTime */
+#mainTime {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+}
+#level {
+  font-size: 3rem;
+}
+.time {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+#time {
+  font-size: 14rem;
+  font-weight: bolder;
+}
+#start,
+#pause,
+#reset,
+#save {
+  border-radius: 1rem;
+  background-color: var(--white);
+  margin: 0 0.5rem 0 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  height: 2rem;
+  width: auto;
+  font-size: 1rem;
+}
+#start {
+  border: 3px solid var(--green);
+}
+#pause {
+  border: 3px solid var(--gray);
+}
+#reset {
+  border: 3px solid var(--red);
+}
+#save {
+  border: 3px solid var(--orange);
+}
+#start:hover {
+  background-color: var(--green);
+}
+#pause:hover {
+  background-color: var(--gray);
+}
+#reset:hover {
+  background-color: var(--red);
+}
+#save:hover {
+  background-color: var(--orange);
+}
+.blinds,
+#nextBlinds {
+  font-weight: bolder;
+}
+.blinds {
+  display: grid;
+  grid-template-rows: auto auto;
+  font-size: 4rem;
+}
+#ante {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 2.5rem;
+}
+#sA1 {
+  font-weight: normal;
+}
+#nextBlinds {
+  font-size: 2.25rem;
+  font-weight: normal;
+}
+
+/* entries */
+#entries {
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
+/***** sect2 *****/
+#sect2 {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+/* controlPanel */
+#controlPanel {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.panel {
+  display: flex;
+  font-size: 2.25rem;
+}
+
+#l-,
+#a- {
+  margin-left: 1.5rem;
+}
 
 /* prizes */
 #prizes {
   font-size: 1.85rem;
   font-weight: bold;
 }
-.text4 {
-  font-style: italic;
-  font-weight: normal;
-}
 
 /***** querys *****/
 /* Pantallas de 1080p */
 @media (min-width: 1920px) and (min-height: 1080px) {
-  /* title */
-  #settings {
-    font-size: 2.25rem;
-  }
-  #title {
-    font-size: 2.5rem;
-  }
-
-  /* secTimes */
-  #secTimes {
-    font-size: 4rem;
-  }
-  .text1 {
-    font-size: 4rem;
-  }
-
-  /* mainTime */
-  #level {
-    font-size: 4rem;
-  }
-  #time {
-    font-size: 24rem;
-  }
-  /* revisar************************************** */
-  #play, 
-  #pause {
-    border-radius: 1rem;
-    margin: 0 0.5rem 0 0.5rem;
-    height: 4rem;
-    font-size: 1rem;
-  }
-  #play {
-    border: 3px solid var(--green);
-  }
-  #pause {
-    border: 3px solid var(--gray);
-  }
-  .blinds {
-    font-size: 6.2rem;
-  }
-  #ante {
-    font-size: 3.5rem;
-  }
-  #nextBlinds {
-    font-size: 3.5rem;
-  }
-  .text2 {
-    font-size: 3rem;
-  }
-  .text3 {
-    font-size: 3.25rem;
-  }
-  /* entries */
-  #entries {
-    font-size: 4rem;
-  }
-
-  /***** sect2 *****/
-  #sect2 {
-    font-size: 2.75rem;
-  }
-  #left,
-  #avg {
-    font-size: 4rem;
-  }
-
-  /* controlPanel */
-  .panel {
-    font-size: 3.25rem;
+  /********** GENERAL **********/
+  .rowCenter {
+    margin-bottom: 0.5rem;
   }
   .edit {
     width: 20rem;
   }
-  #l-,
-  #a- {
-    margin-left: 1.5rem;
+  .text1 {
+    font-size: 4.5rem;
   }
-  button {
+  .text2 {
+    font-size: 3.25rem;
+  }
+  .text3 {
+    font-size: 2.85rem;
+  }
+  .text5 {
+    font-size: 2.4rem;
+  }
+  .round {
     width: 3.25rem;
     height: 3.25rem;
     font-size: 3.25rem;
@@ -290,6 +274,70 @@ p {
   .add {
     border: 2px solid var(--green);
   }
+  #currentTime,
+  #elapsedTime,
+  #nextBreak,
+  #entries,
+  #rebuys,
+  #addons,
+  #avg,
+  #left {
+    font-size: 3.5rem;
+  }
+
+  /********** main ***********/
+
+  /* title */
+  #settings {
+    font-size: 2rem;
+    height: 3rem;
+  }
+  #title {
+    font-size: 2.5rem;
+  }
+
+  /***** sect1 *****/
+  /* mainTime */
+  #level {
+    font-size: 4rem;
+  }
+  #time {
+    font-size: 24rem;
+  }
+  #start,
+  #pause,
+  #reset,
+  #save {
+    height: 3rem;
+    font-size: 2rem;
+  }
+  #start {
+    border: 3px solid var(--green);
+  }
+  #pause {
+    border: 3px solid var(--gray);
+  }
+  #reset {
+    border: 3px solid var(--red);
+  }
+  #save {
+    border: 3px solid var(--purple);
+  }
+  .blinds {
+    font-size: 6rem;
+  }
+  #ante {
+    font-size: 3rem;
+  }
+  #nextBlinds {
+    font-size: 3.25rem;
+  }
+
+  /***** sect2 *****/
+  /* controlPanel */
+  .panel {
+    font-size: 3.25rem;
+  }
 
   /* prizes */
   #prizes {
@@ -299,70 +347,29 @@ p {
 
 /* Pantallas 4K */
 @media (min-width: 3840px) {
-  /* title */
-  #title {
-    font-size: 5.25rem;
-  }
-
-  /* secTimes */
-  #secTimes {
-    font-size: 9rem;
-  }
-  .text1 {
-    font-size: 6rem;
-  }
-
-  /* mainTime */
-  #level {
-    font-size: 7rem;
-  }
-  #time {
-    font-size: 49rem;
-  }
-  .blinds {
-    font-size: 12rem;
-  }
-  #ante {
-    font-size: 7.5rem;
-  }
-  #nextBlinds {
-    font-size: 8rem;
-  }
-  .text2 {
-    font-size: 6rem;
-  }
-  .text3 {
-    font-size: 6.75rem;
-  }
-  /* entries */
-  #entries {
-    font-size: 9rem;
-  }
-
-  /***** sect2 *****/
-  #sect2 {
-    font-size: 3.5rem;
-  }
-  #left,
-  #avg {
-    font-size: 8rem;
-  }
-
-  /* controlPanel */
-  .panel {
-    font-size: 6rem;
+  /********** GENERAL **********/
+  .rowCenter {
+    margin-bottom: 1rem;
   }
   .edit {
-    width: 35rem;
+    width: 40rem;
   }
-  #l-,
-  #a- {
-    margin-left: 2rem;
+  .text1 {
+    font-size: 9.5rem;
   }
-  button {
-    width: 6rem;
-    height: 6rem;
+  .text2 {
+    font-size: 7.5rem;
+  }
+  .text3 {
     font-size: 6rem;
+  }
+  .text5 {
+    font-size: 4rem;
+  }
+  .round {
+    width: 7rem;
+    height: 7rem;
+    font-size: 7rem;
   }
   .reduce {
     border: 4px solid var(--red);
@@ -370,9 +377,73 @@ p {
   .add {
     border: 4px solid var(--green);
   }
+  #currentTime,
+  #elapsedTime,
+  #nextBreak,
+  #entries,
+  #rebuys,
+  #addons,
+  #avg,
+  #left {
+    font-size: 7.5rem;
+  }
+
+  /********** main ***********/
+
+  /* title */
+  #settings {
+    font-size: 4rem;
+    height: 6.25rem;
+  }
+  #title {
+    font-size: 5.35rem;
+  }
+
+  /***** sect1 *****/
+  /* mainTime */
+  #level {
+    font-size: 8rem;
+  }
+  #time {
+    font-size: 43rem;
+  }
+  #start,
+  #pause,
+  #reset,
+  #save {
+    height: 6rem;
+    font-size: 4rem;
+  }
+  #start {
+    border: 4px solid var(--green);
+  }
+  #pause {
+    border: 4px solid var(--gray);
+  }
+  #reset {
+    border: 4px solid var(--red);
+  }
+  #save {
+    border: 4px solid var(--purple);
+  }
+  .blinds {
+    font-size: 13rem;
+  }
+  #ante {
+    font-size: 7.5rem;
+  }
+  #nextBlinds {
+    font-size: 6.5rem;
+  }
+
+  /***** sect2 *****/
+  /* controlPanel */
+  .panel {
+    font-size: 7rem;
+  }
 
   /* prizes */
   #prizes {
-    font-size: 6.25rem;
+    font-size: 7rem;
   }
 }
