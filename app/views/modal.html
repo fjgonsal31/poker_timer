@@ -1,33 +1,162 @@
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <div id="infoMtt">
-      <form action="" id="initGame">
-        <legend>Información del Torneo</legend>
-        <input type="text" name="dateMtt" id="dateMtt" disabled>
-        <input type="text" name="nameMtt" id="nameMtt" placeholder="Nombre del torneo">
-        <input type="number" name="stackMtt" id="stackMtt" placeholder="Stack inicial" min="0">
-        <input type="number" name="buyInMtt" id="buyInMtt" placeholder="Entrada" min="0">
-        <div id="buttons">
-          <button id="acept">Aceptar</button>
-          <button id="cancel">Cancelar</button>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <!-- borrar arriba -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <section id="sectInfoModal">
+            <form action="" id="infoFormModal">
+              <h2>Información del Torneo</h2>
+              <input
+                type="text"
+                name="dateModal"
+                id="dateModal"
+                class="input"
+              />
+              <input
+                type="text"
+                name="nameModal"
+                id="nameModal"
+                class="input"
+                placeholder="Nombre del torneo"
+              />
+              <input
+                type="number"
+                name="stackModal"
+                id="stackModal"
+                class="input"
+                placeholder="Stack inicial"
+                min="0"
+              />
+              <input
+                type="number"
+                name="buyInModal"
+                id="buyInModal"
+                class="input"
+                placeholder="Entrada"
+                min="0"
+              />
+              <input
+                type="number"
+                name="endRebuysModal"
+                id="endRebuysModal"
+                class="input"
+                placeholder="Nivel fin de recompras (incluído)"
+                min="1"
+              />
+              <div id="infoFormBtn" class="buttons">
+                <button id="infoFormSend" class="acept">Enviar</button>
+                <button id="infoFormReset" class="cancel">Limpiar</button>
+              </div>
+            </form>
+            <div id="prizesDivModal">
+              <form action="" id="prizesFormModal">
+                <h2>Premios</h2>
+                <div id="inputPrizes">
+                  <input
+                    type="number"
+                    name="totalPrize"
+                    id="totalPrize"
+                    placeholder="Premio total"
+                    readonly
+                  />
+                  <input
+                    type="number"
+                    name="paidPlaces"
+                    id="paidPlaces"
+                    placeholder="Puestos premiados"
+                    min="1"
+                  />
+                </div>
+                <div id="prizesFormBtn" class="buttons">
+                  <button id="prizesFormSend" class="acept">
+                    Generar premios
+                  </button>
+                </div>
+              </form>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Posición</th>
+                    <th>%</th>
+                    <th>Premio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1º</td>
+                    <td>30%</td>
+                    <td>20.000 €</td>
+                  </tr>
+                  <tr>
+                    <td>2º</td>
+                    <td>20%</td>
+                    <td>12.500 €</td>
+                  </tr>
+                  <tr>
+                    <td>3º</td>
+                    <td>15%</td>
+                    <td>8000 €</td>
+                  </tr>
+                  <tr>
+                    <td>4º</td>
+                    <td>10%</td>
+                    <td>4500 €</td>
+                  </tr>
+                  <tr>
+                    <td>5º</td>
+                    <td>7%</td>
+                    <td>3000 €</td>
+                  </tr>
+                  <tr>
+                    <td>6º</td>
+                    <td>7%</td>
+                    <td>3000 €</td>
+                  </tr>
+                  <tr>
+                    <td>7º</td>
+                    <td>7%</td>
+                    <td>3000 €</td>
+                  </tr>
+                  <tr>
+                    <td>8º</td>
+                    <td>7%</td>
+                    <td>3000 €</td>
+                  </tr>
+                  <tr>
+                    <td>9º</td>
+                    <td>7%</td>
+                    <td>3000 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="styleModal">
+              <h2>Color tema</h2>
+              <select name="themeColor" id="themeColor">
+                <option value="azul">Azul</option>
+                <option value="rojo">Rojooooooooooooooooooooooo</option>
+              </select>
+            </div>
+          </section>
+          <section id="sectBlindsModal">
+            <h2>Blinds</h2>
+            <select name="sectBlindsSelect" id="sectBlindsSelect">
+              <option value="1">Mtt 20 jugadores</option>
+              <option value="2">Mtt 15 jugadores</option>
+              <option value="3">Mtt 10 jugadores</option>
+            </select>
+            <form action="" id="sectBlindsForm"></form>
+          </section>
         </div>
-        <br><br><br>
-      </form>
-      <form action="" id="endRebuys">
-        <legend>Premios</legend>
-        <input type="number" name="prizesMtt" id="prizesMtt" placeholder="Premios">
-        <div id="buttons">
-          <button id="acept">Aceptar</button>
-          <button id="cancel">Cancelar</button>
-        </div>
-      </form>
-    </div>
-    <div id="blindsMtt">
-      <h1>Blinds</h1>
-    </div>
-  </div>
-</div>
-</main>
-<script src="../public/assets/js/modal.js"></script>
-</body>
+      </div>
+    </main>
+    <script src="../public/assets/js/modal.js"></script>
+  </body>
 </html>

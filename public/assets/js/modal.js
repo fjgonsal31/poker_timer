@@ -4,10 +4,10 @@ const settings = document.getElementById("settings");
 
 //***** elementos *****
 const modal = document.getElementById("myModal");
-const date = document.getElementById("dateMtt");
-const name = document.getElementById("nameMtt");
-const stack = document.getElementById("stackMtt");
-const buyIn = document.getElementById("buyInMtt");
+const date = document.getElementById("dateModal");
+const name = document.getElementById("nameModal");
+const stack = document.getElementById("stackModal");
+const buyIn = document.getElementById("buyInModal");
 const acept = document.getElementById("acept");
 const cancel = document.getElementById("cancel");
 

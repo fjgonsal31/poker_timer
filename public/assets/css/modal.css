@@ -11,30 +11,27 @@
   --gray: gray;
 }
 
+/* Estilos para el modal */
 .modal {
-  /* display: none; */
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  z-index: 1;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-}
+ }
 
 .modal-content {
   background-color: var(--white);
-  margin: 5rem;
-  padding: 1.25rem;
-  border: 1px solid var(--gray);
-  width: 90%;
-  height: 80%;
-  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
-#acept,
-#cancel {
+.acept,
+.cancel {
   border-radius: 1rem;
   background-color: var(--white);
   margin: 0 0.5rem 0 0.5rem;
@@ -42,32 +39,61 @@
   font-weight: bold;
   height: 2rem;
   width: auto;
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
-#acept {
-  border: 3px solid var(--green);
+.acept {
+  border: 2px solid var(--green);
 }
-#cancel {
-  border: 3px solid var(--red);
+.cancel {
+  border: 2px solid var(--red);
 }
 .modal-content {
   display: grid;
   grid-template-columns: 1fr 4fr;
   text-align: center;
 }
-#infoMtt,
-#blindsMtt {
-  display: grid;
-  grid-template-columns: auto;
+#sectInfoModal,
+#sectBlindsModal {
   border: 1px solid red;
 }
-#initGame,
-#endRebuys {
+#infoFormModal,
+#prizesDivModal,
+#styleModal {
   display: grid;
-  width: max-content;
+  width: 15rem;
   border: 1px solid green;
-  justify-self: center;
+  justify-content: center;
 }
-legend {
-  font-size: 2rem;
+.input {
+  margin: 0.35rem;
+  font-size: 0.75rem;
+}
+.buttons {
+  margin: 1rem;
+}
+h2 {
+  margin: 0;
+}
+#themeColor {
+  margin: 0.5rem;
+  font-size: 0.75rem;
+  width: max-content;
+}
+#totalPrize {
+  margin-right: 0.35rem;
+  font-size: 0.75rem;
+  width: 5rem;
+}
+#paidPlaces {
+  font-size: 0.75rem;
+  width: 7.5rem;
+}
+#prizesDivModal {
+  padding-bottom: 0.35rem;
+}
+#inputPrizes {
+  padding-top: 0.35rem;
+}
+#sectBlindsSelect{
+  margin: 0.5rem;
 }
