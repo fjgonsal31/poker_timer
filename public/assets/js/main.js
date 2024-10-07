@@ -21,11 +21,6 @@ const downAddons = document.getElementById("a-");
 const upAddons = document.getElementById("a+");
 
 //***** elementos *****
-// title
-const stack = document.getElementById("sT1");
-const buyIn = document.getElementById("sT2");
-const rebuyLevel = document.getElementById("sT3");
-
 // primera columna
 let currentTime = document.getElementById("sCT");
 let elapsedTime = document.getElementById("sET");
@@ -46,7 +41,26 @@ let rebuys = document.getElementById("sR");
 let addons = document.getElementById("sAd");
 let left = document.getElementById("sL");
 
-//------------ funciones ------------
+// info
+const stack = document.getElementById("iM1");
+const buyIn = document.getElementById("iM2");
+const rebuyLevel = document.getElementById("iM3");
 
+//------------ funciones ------------
+// hora actual formateada
+function updateTime() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+
+  return `${hours}:${minutes}`;
+}
+
+// actualizar la hora
+function updateCurrentTime() {
+  currentTime.textContent = updateTime();
+}
 //------------ ejecucion ------------
 
+updateCurrentTime();
+setInterval(updateCurrentTime, 1000);

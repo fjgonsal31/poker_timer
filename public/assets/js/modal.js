@@ -1,6 +1,7 @@
 //------------ variables ------------
 //***** botones *****
 const settings = document.getElementById("settings");
+const closeM = document.getElementById("close");
 
 //***** elementos *****
 const modal = document.getElementById("myModal");
@@ -26,7 +27,12 @@ const year = today.getFullYear();
 
 // abrir modal settings
 settings.addEventListener("click", () => {
-  modal.style.display = "block";
+  modal.style.display = "flex";
+});
+
+// cerrar modal settings
+closeM.addEventListener("click", () => {
+  modal.style.display = "none";
 });
 
 // fecha

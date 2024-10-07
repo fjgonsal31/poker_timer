@@ -115,9 +115,9 @@ p {
   font-size: 1.75rem;
   margin-left: 1.5rem;
 }
-#sT1,
-#sT2,
-#sT3 {
+#iM1,
+#iM2,
+#iM3 {
   font-weight: bold;
 }
 
@@ -236,10 +236,15 @@ p {
   margin-left: 1.5rem;
 }
 
-/* prizes */
+/* info */
 #prizes {
+  display: none;
   font-size: 1.85rem;
   font-weight: bold;
+}
+#infoMtt {
+  font-size: 1.75rem;
+  margin-left: 1.5rem;
 }
 
 /***** querys *****/
@@ -340,9 +345,12 @@ p {
     font-size: 3.25rem;
   }
 
-  /* prizes */
+  /* info */
   #prizes {
     font-size: 3rem;
+  }
+  #infoMtt {
+    font-size: 2.5rem;
   }
 }
 
@@ -443,8 +451,11 @@ p {
     font-size: 7rem;
   }
 
-  /* prizes */
+  /* info */
   #prizes {
     font-size: 7rem;
+  }
+  #infoMtt {
+    font-size: 5.35rem;
   }
 }

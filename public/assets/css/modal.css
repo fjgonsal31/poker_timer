@@ -11,9 +11,8 @@
   --gray: gray;
 }
 
-/* Estilos para el modal */
 .modal {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -22,47 +21,24 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
- }
-
+}
 .modal-content {
+  border: 1px solid green;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  text-align: center;
   background-color: var(--white);
   padding: 1rem;
   border-radius: 0.5rem;
 }
-
-.acept,
-.cancel {
-  border-radius: 1rem;
-  background-color: var(--white);
-  margin: 0 0.5rem 0 0.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  height: 2rem;
-  width: auto;
-  font-size: 0.85rem;
+h2 {
+  margin: 0;
 }
-.acept {
-  border: 2px solid var(--green);
+.number1 {
+  width: 4.55rem;
 }
-.cancel {
-  border: 2px solid var(--red);
-}
-.modal-content {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  text-align: center;
-}
-#sectInfoModal,
-#sectBlindsModal {
-  border: 1px solid red;
-}
-#infoFormModal,
-#prizesDivModal,
-#styleModal {
-  display: grid;
-  width: 15rem;
-  border: 1px solid green;
-  justify-content: center;
+.number2 {
+  width: 2.5rem;
 }
 .input {
   margin: 0.35rem;
@@ -71,13 +47,48 @@
 .buttons {
   margin: 1rem;
 }
-h2 {
-  margin: 0;
-}
-#themeColor {
-  margin: 0.5rem;
+.acept,
+.cancel {
+  border-radius: 1rem;
+  background-color: var(--white);
+  margin: 0 0.5rem 0 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  height: 1.5rem;
+  width: auto;
   font-size: 0.75rem;
-  width: max-content;
+}
+.acept {
+  border: 2px solid var(--green);
+}
+.cancel {
+  border: 2px solid var(--red);
+}
+
+#infoFormModal,
+#prizesDivModal,
+#styleModal {
+  display: grid;
+  width: 15rem;
+  justify-content: center;
+}
+
+/***** sectInfoModal *****/
+#infoFormModal input {
+  width: 10rem;
+  text-align: center;
+  justify-self: center;
+}
+#prizesDivModal {
+  padding-bottom: 0.35rem;
+}
+
+/* prizesDivModal */
+#prizesDivModal input {
+  text-align: center;
+}
+#inputPrizes {
+  padding-top: 0.35rem;
 }
 #totalPrize {
   margin-right: 0.35rem;
@@ -88,12 +99,41 @@ h2 {
   font-size: 0.75rem;
   width: 7.5rem;
 }
-#prizesDivModal {
-  padding-bottom: 0.35rem;
+
+/* styleModal */
+#styleModal {
+  justify-items: center;
 }
-#inputPrizes {
-  padding-top: 0.35rem;
-}
-#sectBlindsSelect{
+#themeColor {
   margin: 0.5rem;
+  font-size: 0.75rem;
+  width: max-content;
+}
+
+/***** sectBlindsModal *****/
+#sectBlindsModal {
+  justify-items: center;
+}
+#sectBlindsSelect {
+  margin: 0.5rem;
+  width: max-content;
+}
+#sectBlindsForm {
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+}
+#blindsLevels {
+  border-collapse: collapse;
+}
+#titleBlindsLevels {
+  width: 11rem;
+  margin: 0.5rem;
+}
+
+/***** button close *****/
+#closeBtn {
+  grid-column: span 2;
+  width: auto;
+  text-align: center;
 }

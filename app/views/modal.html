@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <main>
       <!-- borrar arriba -->
       <div id="myModal" class="modal">
         <div class="modal-content">
@@ -47,7 +38,7 @@
                 name="endRebuysModal"
                 id="endRebuysModal"
                 class="input"
-                placeholder="Nivel fin de recompras (incluído)"
+                placeholder="Nivel fin recompras (incl.)"
                 min="1"
               />
               <div id="infoFormBtn" class="buttons">
@@ -90,41 +81,6 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1º</td>
-                    <td>30%</td>
-                    <td>20.000 €</td>
-                  </tr>
-                  <tr>
-                    <td>2º</td>
-                    <td>20%</td>
-                    <td>12.500 €</td>
-                  </tr>
-                  <tr>
-                    <td>3º</td>
-                    <td>15%</td>
-                    <td>8000 €</td>
-                  </tr>
-                  <tr>
-                    <td>4º</td>
-                    <td>10%</td>
-                    <td>4500 €</td>
-                  </tr>
-                  <tr>
-                    <td>5º</td>
-                    <td>7%</td>
-                    <td>3000 €</td>
-                  </tr>
-                  <tr>
-                    <td>6º</td>
-                    <td>7%</td>
-                    <td>3000 €</td>
-                  </tr>
-                  <tr>
-                    <td>7º</td>
-                    <td>7%</td>
-                    <td>3000 €</td>
-                  </tr>
-                  <tr>
                     <td>8º</td>
                     <td>7%</td>
                     <td>3000 €</td>
@@ -138,25 +94,104 @@
               </table>
             </div>
             <div id="styleModal">
-              <h2>Color tema</h2>
+              <h2>Color del tema</h2>
               <select name="themeColor" id="themeColor">
                 <option value="azul">Azul</option>
-                <option value="rojo">Rojooooooooooooooooooooooo</option>
+                <option value="rojo">Rojo</option>
               </select>
             </div>
           </section>
           <section id="sectBlindsModal">
-            <h2>Blinds</h2>
+            <h2>Niveles de juego</h2>
             <select name="sectBlindsSelect" id="sectBlindsSelect">
               <option value="1">Mtt 20 jugadores</option>
               <option value="2">Mtt 15 jugadores</option>
               <option value="3">Mtt 10 jugadores</option>
             </select>
-            <form action="" id="sectBlindsForm"></form>
+            <form action="" id="sectBlindsForm">
+              <table id="blindsLevels">
+                <thead>
+                  <tr>
+                    <th>Nivel</th>
+                    <th>SB</th>
+                    <th>BB</th>
+                    <th>Ante</th>
+                    <th>Tiempo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      <input class="number1" type="number" value="100.000" />
+                    </td>
+                    <td>
+                      <input class="number1" type="number" value="200.000" />
+                    </td>
+                    <td>
+                      <input class="number1" type="number" value="200.000" />
+                    </td>
+                    <td>
+                      <input class="number2" type="number" value="15" /> min
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      <input class="number1" type="number" value="100.000" />
+                    </td>
+                    <td>
+                      <input class="number1" type="number" value="200.000" />
+                    </td>
+                    <td>
+                      <input class="number1" type="number" value="200.000" />
+                    </td>
+                    <td>
+                      <input class="number2" type="number" value="15" /> min
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>100.000</td>
+                    <td>200.000</td>
+                    <td>200.000</td>
+                    <td>15 min</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid black">4</td>
+                    <td style="border: 1px solid black">100.000</td>
+                    <td style="border: 1px solid black">200.000</td>
+                    <td style="border: 1px solid black">200.000</td>
+                    <td style="border: 1px solid black">15 min</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: bold">25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="font-weight: bold">375 min</td>
+                  </tr>
+                </tbody>
+              </table>
+              <input
+                type="text"
+                name="titleBlindsLevels"
+                id="titleBlindsLevels"
+                placeholder="Nombre Nivel personalizado"
+              />
+              <div>
+                <button id="" class="acept">Guardar y aplicar</button>
+                <button id="" class="cancel">Limpiar</button>
+              </div>
+            </form>
+          </section>
+          <section id="closeBtn">
+            <button id="close" class="cancel">Cerrar</button>
           </section>
         </div>
       </div>
     </main>
+    <script src="../public/assets/js/main.js"></script>
     <script src="../public/assets/js/modal.js"></script>
   </body>
 </html>
