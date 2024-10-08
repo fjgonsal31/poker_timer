@@ -1,197 +1,181 @@
-      <!-- borrar arriba -->
-      <div id="myModal" class="modal">
-        <div class="modal-content">
-          <section id="sectInfoModal">
-            <form action="" id="infoFormModal">
-              <h2>Información del Torneo</h2>
-              <input
-                type="text"
-                name="dateModal"
-                id="dateModal"
-                class="input"
-              />
-              <input
-                type="text"
-                name="nameModal"
-                id="nameModal"
-                class="input"
-                placeholder="Nombre del torneo"
-              />
-              <input
-                type="number"
-                name="stackModal"
-                id="stackModal"
-                class="input"
-                placeholder="Stack inicial"
-                min="0"
-              />
-              <input
-                type="number"
-                name="buyInModal"
-                id="buyInModal"
-                class="input"
-                placeholder="Entrada"
-                min="0"
-              />
-              <input
-                type="number"
-                name="endRebuysModal"
-                id="endRebuysModal"
-                class="input"
-                placeholder="Nivel fin recompras (incl.)"
-                min="1"
-              />
-              <div id="infoFormBtn" class="buttons">
-                <button id="infoFormSend" class="acept">Enviar</button>
-                <button id="infoFormReset" class="cancel">Limpiar</button>
-              </div>
-            </form>
-            <div id="prizesDivModal">
-              <form action="" id="prizesFormModal">
-                <h2>Premios</h2>
-                <div id="inputPrizes">
-                  <input
-                    type="number"
-                    name="totalPrize"
-                    id="totalPrize"
-                    placeholder="Premio total"
-                    readonly
-                  />
-                  <input
-                    type="number"
-                    name="paidPlaces"
-                    id="paidPlaces"
-                    placeholder="Puestos premiados"
-                    min="1"
-                  />
-                </div>
-                <div id="prizesFormBtn" class="buttons">
-                  <button id="prizesFormSend" class="acept">
-                    Generar premios
-                  </button>
-                </div>
-              </form>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Posición</th>
-                    <th>%</th>
-                    <th>Premio</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>8º</td>
-                    <td>7%</td>
-                    <td>3000 €</td>
-                  </tr>
-                  <tr>
-                    <td>9º</td>
-                    <td>7%</td>
-                    <td>3000 €</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="styleModal">
-              <h2>Color del tema</h2>
-              <select name="themeColor" id="themeColor">
-                <option value="azul">Azul</option>
-                <option value="rojo">Rojo</option>
-              </select>
-            </div>
-          </section>
-          <section id="sectBlindsModal">
-            <h2>Niveles de juego</h2>
-            <select name="sectBlindsSelect" id="sectBlindsSelect">
-              <option value="1">Mtt 20 jugadores</option>
-              <option value="2">Mtt 15 jugadores</option>
-              <option value="3">Mtt 10 jugadores</option>
-            </select>
-            <form action="" id="sectBlindsForm">
-              <table id="blindsLevels">
-                <thead>
-                  <tr>
-                    <th>Nivel</th>
-                    <th>SB</th>
-                    <th>BB</th>
-                    <th>Ante</th>
-                    <th>Tiempo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>
-                      <input class="number1" type="number" value="100.000" />
-                    </td>
-                    <td>
-                      <input class="number1" type="number" value="200.000" />
-                    </td>
-                    <td>
-                      <input class="number1" type="number" value="200.000" />
-                    </td>
-                    <td>
-                      <input class="number2" type="number" value="15" /> min
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>
-                      <input class="number1" type="number" value="100.000" />
-                    </td>
-                    <td>
-                      <input class="number1" type="number" value="200.000" />
-                    </td>
-                    <td>
-                      <input class="number1" type="number" value="200.000" />
-                    </td>
-                    <td>
-                      <input class="number2" type="number" value="15" /> min
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>100.000</td>
-                    <td>200.000</td>
-                    <td>200.000</td>
-                    <td>15 min</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid black">4</td>
-                    <td style="border: 1px solid black">100.000</td>
-                    <td style="border: 1px solid black">200.000</td>
-                    <td style="border: 1px solid black">200.000</td>
-                    <td style="border: 1px solid black">15 min</td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight: bold">25</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-weight: bold">375 min</td>
-                  </tr>
-                </tbody>
-              </table>
-              <input
-                type="text"
-                name="titleBlindsLevels"
-                id="titleBlindsLevels"
-                placeholder="Nombre Nivel personalizado"
-              />
-              <div>
-                <button id="" class="acept">Guardar y aplicar</button>
-                <button id="" class="cancel">Limpiar</button>
-              </div>
-            </form>
-          </section>
-          <section id="closeBtn">
-            <button id="close" class="cancel">Cerrar</button>
-          </section>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <section id="sectInfoModal">
+      <form action="" id="infoFormModal">
+        <h2>Información del Torneo</h2>
+        <input type="text" name="dateModal" id="dateModal" class="input" />
+        <input
+          type="text"
+          name="nameModal"
+          id="nameModal"
+          class="input"
+          placeholder="Nombre del torneo"
+        />
+        <input
+          type="number"
+          name="stackModal"
+          id="stackModal"
+          class="input"
+          placeholder="Stack inicial"
+          min="0"
+        />
+        <input
+          type="number"
+          name="buyInModal"
+          id="buyInModal"
+          class="input"
+          placeholder="Entrada"
+          min="0"
+        />
+        <input
+          type="number"
+          name="endRebuysModal"
+          id="endRebuysModal"
+          class="input"
+          placeholder="Nivel fin recompras (incl.)"
+          min="1"
+        />
+        <div id="infoFormBtn" class="buttons">
+          <button id="infoFormSend" class="acept">Enviar</button>
+          <button id="infoFormReset" class="cancel">Limpiar</button>
         </div>
+      </form>
+      <div id="prizesDivModal">
+        <form action="" id="prizesFormModal">
+          <h2>Premios</h2>
+          <div id="inputPrizes">
+            <input
+              type="number"
+              name="totalPrize"
+              id="totalPrize"
+              placeholder="Premio total"
+              readonly
+            />
+            <input
+              type="number"
+              name="paidPlaces"
+              id="paidPlaces"
+              placeholder="Puestos premiados"
+              min="1"
+            />
+          </div>
+          <div id="prizesFormBtn" class="buttons">
+            <button id="prizesFormSend" class="acept">Generar premios</button>
+          </div>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>%</th>
+              <th>Premio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>8º</td>
+              <td>7%</td>
+              <td>3000 €</td>
+            </tr>
+            <tr>
+              <td>9º</td>
+              <td>7%</td>
+              <td>3000 €</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </main>
-    <script src="../public/assets/js/main.js"></script>
-    <script src="../public/assets/js/modal.js"></script>
-  </body>
-</html>
+      <div id="styleModal">
+        <h2>Color del tema</h2>
+        <select name="themeColor" id="themeColor">
+          <option value="blue">Azul</option>
+          <option value="red">Rojo</option>
+          <option value="green">Verde</option>
+        </select>
+      </div>
+    </section>
+    <section id="sectBlindsModal">
+      <h2>Niveles de juego</h2>
+      <select name="sectBlindsSelect" id="sectBlindsSelect">
+        <option value="1">Mtt 20 jugadores</option>
+        <option value="2">Mtt 15 jugadores</option>
+        <option value="3">Mtt 10 jugadores</option>
+      </select>
+      <form action="" id="sectBlindsForm">
+        <table id="blindsLevels">
+          <thead>
+            <tr>
+              <th>Nivel</th>
+              <th>SB</th>
+              <th>BB</th>
+              <th>Ante</th>
+              <th>Tiempo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                <input class="number1" type="number" value="100.000" />
+              </td>
+              <td>
+                <input class="number1" type="number" value="200.000" />
+              </td>
+              <td>
+                <input class="number1" type="number" value="200.000" />
+              </td>
+              <td><input class="number2" type="number" value="15" /> min</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <input class="number1" type="number" value="100.000" />
+              </td>
+              <td>
+                <input class="number1" type="number" value="200.000" />
+              </td>
+              <td>
+                <input class="number1" type="number" value="200.000" />
+              </td>
+              <td><input class="number2" type="number" value="15" /> min</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>100.000</td>
+              <td>200.000</td>
+              <td>200.000</td>
+              <td>15 min</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid black">4</td>
+              <td style="border: 1px solid black">100.000</td>
+              <td style="border: 1px solid black">200.000</td>
+              <td style="border: 1px solid black">200.000</td>
+              <td style="border: 1px solid black">15 min</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold">25</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="font-weight: bold">375 min</td>
+            </tr>
+          </tbody>
+        </table>
+        <input
+          type="text"
+          name="titleBlindsLevels"
+          id="titleBlindsLevels"
+          placeholder="Nombre Nivel personalizado"
+        />
+        <div>
+          <button id="" class="acept">Guardar y aplicar</button>
+          <button id="" class="cancel">Limpiar</button>
+        </div>
+      </form>
+    </section>
+    <section id="closeBtn">
+      <button id="close" class="cancel">Cerrar</button>
+    </section>
+  </div>
+</div>

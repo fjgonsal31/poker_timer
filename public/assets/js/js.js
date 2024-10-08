@@ -1,4 +1,4 @@
-//------------ variables ------------
+//------------ variables Main------------
 //***** botones *****
 // level
 const downLevel = document.getElementById("lev-");
@@ -21,6 +21,8 @@ const downAddons = document.getElementById("a-");
 const upAddons = document.getElementById("a+");
 
 //***** elementos *****
+// title
+const title = document.getElementById("title");
 // primera columna
 let currentTime = document.getElementById("sCT");
 let elapsedTime = document.getElementById("sET");
@@ -44,9 +46,36 @@ let left = document.getElementById("sL");
 // info
 const stack = document.getElementById("iM1");
 const buyIn = document.getElementById("iM2");
-const rebuyLevel = document.getElementById("iM3");
+const endRebuys = document.getElementById("iM3");
+
+//------------ variables Modal------------
+//***** botones *****
+const settings = document.getElementById("settings");
+const closeM = document.getElementById("close");
+
+//***** elementos *****
+const modal = document.getElementById("myModal");
+const dateM = document.getElementById("dateModal");
+const nameM = document.getElementById("nameModal");
+const stackM = document.getElementById("stackModal");
+const buyInM = document.getElementById("buyInModal");
+const endRebuysM = document.getElementById("endRebuysModal");
+const formInfoM = document.getElementById("infoFormModal");
+const sendInfoBtnM = document.getElementById("infoFormSend");
+const resetInfoBtnM = document.getElementById("cancel");
+
+const theme = document.getElementById("themeColor");
 
 //------------ funciones ------------
+//***** tiempos *****
+// fecha actual
+const today = new Date();
+
+// fecha en formato DD-MM-YYYY
+const day = String(today.getDate()).padStart(2, "0");
+const month = String(today.getMonth() + 1).padStart(2, "0");
+const year = today.getFullYear();
+
 // hora actual formateada
 function updateTime() {
   const now = new Date();
@@ -62,5 +91,42 @@ function updateCurrentTime() {
 }
 //------------ ejecucion ------------
 
+// abrir modal settings
+settings.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+// cerrar modal settings
+closeM.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// mostrar hora
 updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
+
+// FORM información del torneo
+dateM.value = `${day}/${month}/${year}`;
+formInfoM.addEventListener("submit", () => {
+  event.preventDefault();
+  title.textContent = nameM.value;
+  stack.textContent = stackM.value;
+  buyIn.textContent = buyInM.value;
+  endRebuys.textContent = " Nivel " + endRebuysM.value;
+});
+
+// FORM color tema
+theme.addEventListener("change", () => {
+  $colorTheme = theme.value;
+  switch (colorTheme) {
+    case "blue":
+      break;
+    case "red":
+      break;
+    case "green":
+      break;
+
+    default:
+      break;
+  }
+});
