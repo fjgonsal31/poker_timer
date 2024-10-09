@@ -3,9 +3,9 @@
   --white: white;
   --black: black;
   --red1: #8b0000;
-  --red2: #b22222;
-  --red3: #ff0000;
-  --red4: #ff6347;
+  --red2: #8f1414;
+  --red3: #b30c0c;
+  --red4: #7f1f0e;
   --blue1: #002147;
   --blue2: #003366;
   --blue3: #004080;
@@ -25,11 +25,14 @@ body {
   color: var(--white);
   overflow: hidden;
 }
+main {
+  border: 2px solid var(--black);
+}
 .div {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--black);
+  border: 2px solid var(--black);
   position: relative;
 }
 .rowAround {
