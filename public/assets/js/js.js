@@ -21,6 +21,11 @@ const downAddons = document.getElementById("a-");
 const upAddons = document.getElementById("a+");
 
 //***** elementos *****
+// general
+const classOne = document.querySelectorAll(".one");
+const classTwo = document.querySelectorAll(".two");
+const classThree = document.querySelectorAll(".three");
+
 // title
 const title = document.getElementById("title");
 // primera columna
@@ -62,7 +67,7 @@ const buyInM = document.getElementById("buyInModal");
 const endRebuysM = document.getElementById("endRebuysModal");
 const formInfoM = document.getElementById("infoFormModal");
 const sendInfoBtnM = document.getElementById("infoFormSend");
-const resetInfoBtnM = document.getElementById("cancel");
+const resetInfoBtnM = document.getElementById("infoFormReset");
 
 const theme = document.getElementById("themeColor");
 
@@ -107,26 +112,58 @@ setInterval(updateCurrentTime, 1000);
 
 // FORM información del torneo
 dateM.value = `${day}/${month}/${year}`;
-formInfoM.addEventListener("submit", () => {
+infoFormSend.addEventListener("click", () => {
   event.preventDefault();
   title.textContent = nameM.value;
-  stack.textContent = stackM.value;
-  buyIn.textContent = buyInM.value;
-  endRebuys.textContent = " Nivel " + endRebuysM.value;
+  stack.textContent = parseInt(stackM.value).toLocaleString();
+  buyIn.textContent = parseInt(buyInM.value).toLocaleString();
+  endRebuys.textContent = " Nivel " + parseInt(endRebuysM.value);
+});
+
+resetInfoBtnM.addEventListener("click", () => {
+  event.preventDefault();
+  title.textContent = "-";
+  stack.textContent = "-";
+  buyIn.textContent = "-";
+  endRebuys.textContent = " Nivel " + "-";
+  nameM.value = "";
+  stackM.value = "";
+  buyInM.value = "";
+  endRebuysM.value = "";
 });
 
 // FORM color tema
 theme.addEventListener("change", () => {
-  $colorTheme = theme.value;
-  switch (colorTheme) {
-    case "blue":
-      break;
-    case "red":
-      break;
-    case "green":
-      break;
+  let selectedColor = theme.value;
+  let themeElements = [classOne, classTwo, classThree];
+  let color1 = "var(--blue1)";
+  let color2 = "var(--blue2)";
+  let color3 = "var(--blue3)";
+  let color4 = "var(--blue4)";
 
-    default:
-      break;
+  if (selectedColor == "red") {
+    color1 = "var(--red1)";
+    color2 = "var(--red2)";
+    color3 = "var(--red3)";
+    color4 = "var(--red4)";
+  } else if (selectedColor == "green") {
+    color1 = "var(--green1)";
+    color2 = "var(--green2)";
+    color3 = "var(--green3)";
+    color4 = "var(--green4)";
   }
+
+  themeElements[0].forEach((element) => {
+    element.style.backgroundColor = color1;
+  });
+
+  themeElements[1].forEach((element) => {
+    element.style.backgroundColor = color2;
+  });
+
+  themeElements[2].forEach((element) => {
+    element.style.backgroundColor = color3;
+  });
+
+  document.documentElement.style.backgroundColor = color4;
 });
