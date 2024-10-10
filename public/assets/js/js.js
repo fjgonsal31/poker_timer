@@ -5,10 +5,9 @@ const downLevel = document.getElementById("lev-");
 const upLevel = document.getElementById("lev+");
 
 // time
-const start = document.getElementById("start");
-const pause = document.getElementById("pause");
-const reset = document.getElementById("reset");
-const save = document.getElementById("save");
+const startBtn = document.getElementById("start");
+const pauseBtn = document.getElementById("pause");
+const endBtn = document.getElementById("end");
 
 // panel
 const downEntries = document.getElementById("e-");
@@ -56,6 +55,10 @@ const endRebuys = document.getElementById("iM3");
 //------------ variables Modal------------
 //***** botones *****
 const settings = document.getElementById("settings");
+const sendInfoBtnM = document.getElementById("infoDivSend");
+const resetInfoBtnM = document.getElementById("infoDivReset");
+const generatePrizes = document.getElementById("prizesGenerateBtn");
+const sendPrizesBtn = document.getElementById("prizesSendBtn");
 const closeM = document.getElementById("close");
 
 //***** elementos *****
@@ -65,10 +68,10 @@ const nameM = document.getElementById("nameModal");
 const stackM = document.getElementById("stackModal");
 const buyInM = document.getElementById("buyInModal");
 const endRebuysM = document.getElementById("endRebuysModal");
-const formInfoM = document.getElementById("infoFormModal");
-const sendInfoBtnM = document.getElementById("infoFormSend");
-const resetInfoBtnM = document.getElementById("infoFormReset");
-
+const totalPrize = document.getElementById("totalPrize");
+const paidPlaces = document.getElementById("paidPlaces");
+const tablePrizes = document.getElementById("tablePrizes");
+const tbodyPrizes = document.getElementById("tbodyPrizes");
 const theme = document.getElementById("themeColor");
 
 //------------ funciones ------------
@@ -112,8 +115,7 @@ setInterval(updateCurrentTime, 1000);
 
 // FORM información del torneo
 dateM.value = `${day}/${month}/${year}`;
-infoFormSend.addEventListener("click", () => {
-  event.preventDefault();
+infoDivSend.addEventListener("click", () => {
   title.textContent = nameM.value;
   stack.textContent = parseInt(stackM.value).toLocaleString();
   buyIn.textContent = parseInt(buyInM.value).toLocaleString();
@@ -121,7 +123,6 @@ infoFormSend.addEventListener("click", () => {
 });
 
 resetInfoBtnM.addEventListener("click", () => {
-  event.preventDefault();
   title.textContent = "-";
   stack.textContent = "-";
   buyIn.textContent = "-";
@@ -166,4 +167,69 @@ theme.addEventListener("change", () => {
   });
 
   document.documentElement.style.backgroundColor = color4;
+});
+
+// FORM premios
+generatePrizes.addEventListener("click", () => {
+  let distribucion = [];
+  tbodyPrizes.textContent = "";
+
+  // hacer tabla en BD
+  switch (Number(paidPlaces.value)) {
+    case 3:
+      distribucion = [
+        { place: "1°", percent: 50 },
+        { place: "2°", percent: 30 },
+        { place: "3°", percent: 20 },
+      ];
+      break;
+    case 4:
+      distribucion = [
+        { place: "1°", percent: 50 },
+        { place: "2°", percent: 25 },
+        { place: "3°", percent: 15 },
+        { place: "4°", percent: 10 },
+      ];
+      break;
+    case 5:
+      distribucion = [
+        { place: "1°", percent: 40 },
+        { place: "2°", percent: 25 },
+        { place: "3°", percent: 15 },
+        { place: "4°", percent: 10 },
+        { place: "5°", percent: 10 },
+      ];
+      break;
+    default:
+      distribucion = "Número de jugadores no válido. Debe estar entre 3 y 5.";
+      break;
+  }
+
+  if (typeof distribucion !== "string") {
+    tablePrizes.style.display = "block";
+
+    for (let i = 0; i < distribucion.length; i++) {
+      let tr = document.createElement("tr");
+      let tdPlace = document.createElement("td");
+
+      tdPlace.textContent = distribucion[i].place;
+      tr.appendChild(tdPlace);
+
+      let tdPercent = document.createElement("td");
+
+      tdPercent.textContent = distribucion[i].percent + " %";
+      tr.appendChild(tdPercent);
+
+      let tdPrize = document.createElement("td");
+
+      tdPrize.textContent =
+        Number(totalPrize.value) * (Number(distribucion[i].percent) / 100) +
+        " €";
+      tr.appendChild(tdPrize);
+
+      tbodyPrizes.appendChild(tr);
+    }
+  } else {
+    tablePrizes.style.display = "none";
+  }
 });

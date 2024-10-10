@@ -5,10 +5,10 @@
   --red: red;
   --blue: blue;
   --green: green;
-  --yellow: yellow;
-  --purple: purple;
-  --orange: rgb(255, 136, 0);
   --gray: gray;
+  --orange: #f0730d;
+  --blue5: rgb(120, 162, 241);
+  --gray1: rgb(214, 204, 204);
 }
 
 .modal {
@@ -24,7 +24,6 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .modal-content {
-  border: 1px solid green;
   display: grid;
   grid-template-columns: 1fr 4fr;
   text-align: center;
@@ -49,7 +48,8 @@ h2 {
   margin: 1rem;
 }
 .acept,
-.cancel {
+.cancel,
+.info {
   border-radius: 1rem;
   background-color: var(--white);
   margin: 0 0.5rem 0 0.5rem;
@@ -59,23 +59,24 @@ h2 {
   width: auto;
   font-size: 0.75rem;
 }
-.acept {
-  border: 2px solid var(--green);
-}
-.cancel {
-  border: 2px solid var(--red);
+.acept,
+.cancel,
+.info {
+  border: 2px solid var(--black);
 }
 
-#infoFormModal,
+#infoDivModal,
 #prizesDivModal,
 #styleModal {
   display: grid;
   width: 15rem;
   justify-content: center;
+  border: 1px solid var(--black);
+  margin-bottom: 0.1rem;
 }
 
 /***** sectInfoModal *****/
-#infoFormModal input {
+#infoDivModal input {
   width: 10rem;
   text-align: center;
   justify-self: center;
@@ -85,6 +86,10 @@ h2 {
 }
 
 /* prizesDivModal */
+#prizesDivModal {
+  display: flex;
+  flex-direction: column;
+}
 #prizesDivModal input {
   text-align: center;
 }
@@ -94,11 +99,27 @@ h2 {
 #totalPrize {
   margin-right: 0.35rem;
   font-size: 0.75rem;
-  width: 5rem;
+  width: 4rem;
 }
 #paidPlaces {
+  margin-left: 0.75rem;
   font-size: 0.75rem;
   width: 7.5rem;
+}
+#tablePrizes {
+  display: none;
+  border-collapse: collapse;
+  align-self: center;
+}
+#tablePrizes th {
+  background-color: var(--blue);
+}
+#tablePrizes th,
+#tablePrizes td {
+  border: 1px solid black;
+}
+#tablePrizes tr:nth-child(even) {
+  background-color: var(--gray);
 }
 
 /* styleModal */
@@ -113,13 +134,15 @@ h2 {
 
 /***** sectBlindsModal *****/
 #sectBlindsModal {
+  border: 1px solid var(--black);
+  margin-left: 0.1rem;
   justify-items: center;
 }
 #sectBlindsSelect {
   margin: 0.5rem;
   width: max-content;
 }
-#sectBlindsForm {
+#sectBlindsDiv {
   display: grid;
   grid-template-columns: auto;
   justify-items: center;

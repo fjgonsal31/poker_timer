@@ -1,7 +1,7 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
     <section id="sectInfoModal">
-      <form action="" id="infoFormModal">
+      <div id="infoDivModal">
         <h2>Información del Torneo</h2>
         <input type="text" name="dateModal" id="dateModal" class="input" />
         <input
@@ -10,6 +10,7 @@
           id="nameModal"
           class="input"
           placeholder="Nombre del torneo"
+          max="50"
         />
         <input
           type="number"
@@ -17,7 +18,7 @@
           id="stackModal"
           class="input"
           placeholder="Stack inicial"
-          min="0"
+          min="1"
           step="1"
         />
         <input
@@ -26,7 +27,7 @@
           id="buyInModal"
           class="input"
           placeholder="Entrada"
-          min="0"
+          min="1"
         />
         <input
           type="number"
@@ -37,53 +38,42 @@
           min="1"
           step="1"
         />
-        <div id="infoFormBtn" class="buttons">
-          <button id="infoFormSend" type="submit" class="acept">Enviar</button>
-          <button id="infoFormReset" class="cancel">Limpiar</button>
+        <div id="infoDivBtn" class="buttons">
+          <button id="infoDivSend" type="submit" class="acept">Enviar</button>
+          <button id="infoDivReset" class="cancel">Resetear</button>
         </div>
-      </form>
+      </div>
       <div id="prizesDivModal">
-        <form action="" id="prizesFormModal">
-          <h2>Premios</h2>
-          <div id="inputPrizes">
-            <input
-              type="number"
-              name="totalPrize"
-              id="totalPrize"
-              placeholder="Premio total"
-              readonly
-            />
-            <input
-              type="number"
-              name="paidPlaces"
-              id="paidPlaces"
-              placeholder="Puestos premiados"
-              min="1"
-            />
-          </div>
-          <div id="prizesFormBtn" class="buttons">
-            <button id="prizesFormSend" class="acept">Generar premios</button>
-          </div>
-        </form>
-        <table>
+        <h2>Premios</h2>
+        <div id="inputPrizes">
+          <input
+            type="text"
+            name="totalPrize"
+            id="totalPrize"
+            placeholder="Acumulado"
+            readonly
+          />€
+          <input
+            type="number"
+            name="paidPlaces"
+            id="paidPlaces"
+            placeholder="Puestos premiados"
+            min="1"
+          />
+        </div>
+        <div id="prizesDiv" class="buttons">
+          <button id="prizesGenerateBtn" class="info">Generar premios</button>
+          <button id="prizesSendBtn" class="acept">Enviar</button>
+        </div>
+        <table id="tablePrizes">
           <thead>
             <tr>
-              <th>Posición</th>
-              <th>%</th>
+              <th>Puesto</th>
+              <th>Porcentaje</th>
               <th>Premio</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>8º</td>
-              <td>7%</td>
-              <td>3000 €</td>
-            </tr>
-            <tr>
-              <td>9º</td>
-              <td>7%</td>
-              <td>3000 €</td>
-            </tr>
+          <tbody id="tbodyPrizes">
           </tbody>
         </table>
       </div>
@@ -103,7 +93,7 @@
         <option value="2">Mtt 15 jugadores</option>
         <option value="3">Mtt 10 jugadores</option>
       </select>
-      <form action="" id="sectBlindsForm">
+      <div id="sectBlindsDiv">
         <table id="blindsLevels">
           <thead>
             <tr>
@@ -174,7 +164,7 @@
           <button id="" class="acept">Guardar y aplicar</button>
           <button id="" class="cancel">Limpiar</button>
         </div>
-      </form>
+      </div>
     </section>
     <section id="closeBtn">
       <button id="close" class="cancel">Cerrar</button>

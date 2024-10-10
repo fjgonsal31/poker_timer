@@ -2,19 +2,24 @@
 :root {
   --white: white;
   --black: black;
-  --red1: #8b0000;
-  --red2: #8f1414;
-  --red3: #b30c0c;
-  --red4: #7f1f0e;
+  --red: red;
+  --red1: #9c0505;
+  --red2: #800000;
+  --red3: #b22222;
+  --red4: #942525;
+  --blue: blue;
   --blue1: #002147;
   --blue2: #003366;
   --blue3: #004080;
   --blue4: #00509e;
-  --green1: #006400;
-  --green2: #008000;
-  --green3: #32cd32;
-  --green4: #98fb98;
+  --green: green;
+  --green1: #087408;
+  --green2: #025a02;
+  --green3: #2ba12b;
+  --green4: #085e08;
   --gray: gray;
+  --orange: #f0730d;
+  --yellow: #fcf17f;
 }
 
 /* Pantallas de 720p */
@@ -33,7 +38,6 @@ main {
   justify-content: center;
   align-items: center;
   border: 2px solid var(--black);
-  position: relative;
 }
 .rowAround {
   display: flex;
@@ -85,17 +89,17 @@ main {
   height: 1.5rem;
   font-size: 2rem;
 }
-.reduce {
-  border: 1px solid var(--red);
-}
+.reduce,
 .add {
-  border: 1px solid var(--green);
+  border: 1px solid var(--black);
 }
-.reduce:hover {
-  background-color: var(--red);
-}
-.add:hover {
-  background-color: var(--green);
+#settings:hover,
+.add:hover,
+.reduce:hover,
+#start:hover,
+#pause:hover,
+#end:hover {
+  background-color: var(--yellow);
 }
 p {
   margin: 0;
@@ -115,24 +119,28 @@ p {
 /********** main ***********/
 
 /* title */
+#sectTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 #settings {
-  border: 1px solid var(--black);
+  margin-right: auto;
+  border: none;
+  border-right: 4px solid var(--black);
   background-color: var(--white);
   cursor: pointer;
   font-size: 1.45rem;
-  position: absolute;
   padding: 0;
-  top: 0%;
-  left: 0%;
   height: 2.1rem;
-  width: auto;
-}
-#settings:hover {
-  background-color: var(--black);
+  width: 2.25rem;
 }
 #title {
   font-size: 1.75rem;
-  margin-left: 1.5rem;
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+  padding-right: 3.5rem;
 }
 #iM1,
 #iM2,
@@ -170,8 +178,7 @@ p {
 }
 #start,
 #pause,
-#reset,
-#save {
+#end {
   border-radius: 1rem;
   background-color: var(--white);
   margin: 0 0.5rem 0 0.5rem;
@@ -180,30 +187,7 @@ p {
   height: 1.5rem;
   width: auto;
   font-size: 0.75rem;
-}
-#start {
-  border: 2px solid var(--green);
-}
-#pause {
-  border: 2px solid var(--gray);
-}
-#reset {
-  border: 2px solid var(--red);
-}
-#save {
-  border: 2px solid var(--orange);
-}
-#start:hover {
-  background-color: var(--green);
-}
-#pause:hover {
-  background-color: var(--gray);
-}
-#reset:hover {
-  background-color: var(--red);
-}
-#save:hover {
-  background-color: var(--orange);
+  border: 2px solid var(--black);
 }
 .blinds,
 #nextBlinds {
@@ -294,11 +278,9 @@ p {
     height: 2rem;
     font-size: 2.5rem;
   }
-  .reduce {
-    border: 2px solid var(--red);
-  }
+  .reduce,
   .add {
-    border: 2px solid var(--green);
+    border: 2px solid var(--black);
   }
   #currentTime,
   #elapsedTime,
@@ -332,22 +314,10 @@ p {
   }
   #start,
   #pause,
-  #reset,
-  #save {
+  #end {
     height: 2rem;
     font-size: 1.25rem;
-  }
-  #start {
-    border: 2.5px solid var(--green);
-  }
-  #pause {
-    border: 2.5px solid var(--gray);
-  }
-  #reset {
-    border: 2.5px solid var(--red);
-  }
-  #save {
-    border: 2.5px solid var(--orange);
+    border: 2.5px solid var(--black);
   }
   .blinds {
     font-size: 6rem;
@@ -400,11 +370,9 @@ p {
     height: 4rem;
     font-size: 4.5rem;
   }
-  .reduce {
-    border: 4px solid var(--red);
-  }
+  .reduce,
   .add {
-    border: 4px solid var(--green);
+    border: 4px solid var(--black);
   }
   #currentTime,
   #elapsedTime,
@@ -438,22 +406,10 @@ p {
   }
   #start,
   #pause,
-  #reset,
-  #save {
+  #end {
     height: 4rem;
     font-size: 2.5rem;
-  }
-  #start {
-    border: 4px solid var(--green);
-  }
-  #pause {
-    border: 4px solid var(--gray);
-  }
-  #reset {
-    border: 4px solid var(--red);
-  }
-  #save {
-    border: 4px solid var(--orange);
+    border: 4px solid var(--black);
   }
   .blinds {
     font-size: 13rem;
