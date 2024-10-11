@@ -1,16 +1,4 @@
 /********** GENERAL **********/
-:root {
-  --white: white;
-  --black: black;
-  --red: red;
-  --blue: blue;
-  --green: green;
-  --gray: gray;
-  --orange: #f0730d;
-  --blue5: rgb(120, 162, 241);
-  --gray1: rgb(214, 204, 204);
-}
-
 .modal {
   color: var(--black);
   display: none;
@@ -96,6 +84,11 @@ h2 {
 #inputPrizes {
   padding-top: 0.35rem;
 }
+#prizesDiv {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 #totalPrize {
   margin-right: 0.35rem;
   font-size: 0.75rem;
@@ -106,20 +99,23 @@ h2 {
   font-size: 0.75rem;
   width: 7.5rem;
 }
+#prizesSendBtn {
+  display: none;
+}
 #tablePrizes {
   display: none;
   border-collapse: collapse;
   align-self: center;
 }
 #tablePrizes th {
-  background-color: var(--blue);
+  background-color: var(--blue5);
 }
 #tablePrizes th,
 #tablePrizes td {
   border: 1px solid black;
 }
 #tablePrizes tr:nth-child(even) {
-  background-color: var(--gray);
+  background-color: var(--gray1);
 }
 
 /* styleModal */

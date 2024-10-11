@@ -1,6 +1,6 @@
 <?php
 
-$documents_routes = require '../config/documents_routes.php';
+$documents_routes = require '../config/routes.php';
 
 require_once $documents_routes['vHead'];
 require_once $documents_routes['vMain'];

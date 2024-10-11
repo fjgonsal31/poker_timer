@@ -1,139 +1,109 @@
-<main>
-  <!-- title -->
-  <section id="sectTitle" class="div one">
-    <button id="settings">⚙️</button>
+<div class="grid-container">
+  <!-- first row -->
+  <div class="top-row one" id="firstRow">
+    <button id="settingsBtn">⚙️</button>
     <p id="title">-</p>
-  </section>
-  <!-- sect1 -->
-  <section id="sect1">
-    <!-- secTimes -->
-    <section id="secTimes">
+  </div>
+  <!-- main content -->
+  <div class="main-content">
+    <!-- col1 -->
+    <div class="column" id="col1">
+      <!-- current time -->
       <div id="currentTimeDiv" class="div three">
-        <p id="currentTime">
-          Hora<br />
-          <span id="sCT" class="text1"></span>
-        </p>
+        <p id="currentTime">Hora<br /><span id="sCT"></span> h</p>
       </div>
+      <!-- elapsed -->
       <div id="elapsedTimeDiv" class="div two">
-        <p id="elapsedTime">
-          En juego<br />
-          <span id="sET" class="text1">-:-</span>
-          h
-        </p>
+        <p id="elapsedTime">En juego<br /><span id="sET">-:-</span> h</p>
       </div>
+      <!-- break -->
       <div id="nextBreakDiv" class="div three">
-        <p id="nextBreak">
-          Descanso en<br />
-          <span id="sNBr" class="text1">-:-</span>
-          min
-        </p>
+        <p id="nextBreak">Descanso en<br /><span id="sNBr">-:-</span> min</p>
       </div>
-    </section>
-    <!-- mainTime -->
-    <section id="mainTime">
-      <div id="levelDiv" class="div rowAround two">
-        <button id="lev-" class="reduce round">-</button>
+      <!-- avg -->
+      <div id="avgDiv" class="div two">
+        <p id="avg">Media <br /><span id="sAvg">-</span></p>
+      </div>
+    </div>
+    <!-- col2 -->
+    <div class="column" id="col2">
+      <!-- level -->
+      <div id="levelDiv" class="div two">
+        <button id="lev-" class="btnEdit">-</button>
         <p id="level">Nivel -</p>
-        <button id="lev+" class="add round">+</button>
+        <button id="lev+" class="btnEdit">+</button>
       </div>
-      <div id="timeDiv" class="div time one">
+      <!-- time -->
+      <div id="timeDiv" class="div one">
         <p id="time">-:-</p>
-        <div class="rowCenter">
-          <button id="start">Empezar</button>
-          <button id="pause">Pausar</button>
-          <button id="end">Finalizar</button>
+        <div id="timeDivBtn">
+          <button id="start" class="btnAction">Empezar</button>
+          <button id="pause" class="btnAction">Pausar</button>
+          <button id="end" class="btnAction">Finalizar</button>
         </div>
       </div>
-      <div id="blindDiv" class="div blinds two">
+      <!-- blinds -->
+      <div id="blindDiv" class="div two">
         <p id="blinds">-/-</p>
-        <p id="ante">
-          <span id="sA1">ante</span>
-          <span id="sA2">-</span>
-        </p>
+        <p id="ante"><span id="sA1">ante</span> <span id="sA2">-</span></p>
       </div>
+      <!-- next blidns -->
       <div id="nextBlindsDiv" class="div one">
         <p id="nextBlinds">
-          Siguiente nivel:
-          <span id="sNBl1" class="text2">-/-</span>
-          <span id="sNBl2" class="text5">ante</span>
-          <span id="sNBl3" class="text3">-</span>
+          Siguiente nivel: <span id="sNBl1">-/-</span>
+          <span id="sNBl2">ante</span>
+          <span id="sNBl3">-</span>
         </p>
       </div>
-    </section>
-    <!-- entries -->
-    <section id="entries">
+      <!-- control panel -->
+      <div id="controlPanel" class="div three">
+        <div id="row1" class="panel">
+          <button id="e-" class="btnEdit">-</button>
+          <p class="pPanel">Entradas</p>
+          <button id="e+" class="btnEdit">+</button>
+          <button id="a-" class="btnEdit">-</button>
+          <p class="pPanel">Add-ons</p>
+          <button id="a+" class="btnEdit">+</button>
+        </div>
+        <div id="row2" class="panel">
+          <button id="r-" class="btnEdit">-</button>
+          <p class="pPanel">Recompras</p>
+          <button id="r+" class="btnEdit">+</button>
+          <button id="l-" class="btnEdit">-</button>
+          <p class="pPanel">Jugadores</p>
+          <button id="l+" class="btnEdit">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- col3 -->
+    <div class="column" id="col3">
+      <!-- buy ins -->
       <div id="buyInsDiv" class="div three">
-        <p id="buyIns">
-          Entradas <br />
-          <span id="sB" class="text1">-</span>
-        </p>
+        <p id="buyIns">Entradas <br /><span id="sB">0</span></p>
       </div>
+      <!-- rebuys -->
       <div id="rebuysDiv" class="div two">
-        <p id="rebuys">
-          Recompras <br />
-          <span id="sR" class="text1">-</span>
-        </p>
+        <p id="rebuys">Recompras <br /><span id="sR">0</span></p>
       </div>
+      <!-- add ons -->
       <div id="addonsDiv" class="div three">
-        <p id="addons">
-          Add-ons <br />
-          <span id="sAd" class="text1">-</span>
-        </p>
+        <p id="addons">Add-ons <br /><span id="sAd">0</span></p>
       </div>
-    </section>
-  </section>
-  <!-- sect2 -->
-  <section id="sect2">
-    <div id="avgDiv" class="div two">
-      <p id="avg">
-        Media <br />
-        <span id="sAvg" class="text1">-</span>
-      </p>
-    </div>
-    <!-- controlPanel -->
-    <div id="controlPanel" class="div three">
-      <div id="row1" class="panel">
-        <button id="e-" class="reduce round">-</button>
-        <p class="edit">Entradas</p>
-        <button id="e+" class="add round">+</button>
-        <button id="l-" class="reduce round">-</button>
-        <p class="edit">Jugadores</p>
-        <button id="l+" class="add round">+</button>
-      </div>
-      <div id="row2" class="panel">
-        <button id="r-" class="reduce round">-</button>
-        <p class="edit">Recompras</p>
-        <button id="r+" class="add round">+</button>
-        <button id="a-" class="reduce round">-</button>
-        <p class="edit">Add-ons</p>
-        <button id="a+" class="add round">+</button>
+      <!-- players -->
+      <div id="playersDiv" class="div two">
+        <p id="players">Jugadores <br /><span id="sP">0/0</span></p>
       </div>
     </div>
-    <div id="leftDiv" class="div two">
-      <p id="left">
-        Jugadores <br />
-        <span id="sL" class="text1">-/-</span>
-      </p>
-    </div>
-  </section>
-  <!-- info -->
-  <section id="sectFooter" class="div one">
-    <!-- crear dinamicamente -->
-    <p id="prizes">
-      1º: <span class="text4">700 €</span> | 2º:
-      <span class="text4">450 €</span> | 3º: <span class="text4">275 €</span> |
-      4º: <span class="text4">150 €</span> | 5º:
-      <span class="text4">75 €</span> | 6º: <span class="text4">35 €</span> |
-      7º: <span class="text4">20 €</span> | 8º: <span class="text4">10 €</span>
-    </p>
+  </div>
+  <!-- last row -->
+  <div class="bottom-row one" id="lastRow">
+    <!-- info -->
     <p id="infoMtt">
-      Stack inicial:
-      <span id="iM1" class="bold">-</span>
-      | Entrada/recompra/add-on:
-      <span id="iM2" class="bold">-</span>
-      € | Recompras ilimitadas hasta
-      <span id="iM3" class="bold">-</span>
-      (incl.)
+      Stack inicial: <span id="iM1" class="bold">-</span> |
+      Entrada/recompra/add-on: <span id="iM2" class="bold">-</span> € |
+      Recompras hasta <span id="iM3" class="bold">-</span> (incl.)
     </p>
-  </section>
-</main>
+    <!-- prizes -->
+    <p id="prizes"></p>
+  </div>
+</div>
