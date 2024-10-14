@@ -13,11 +13,13 @@
 }
 .modal-content {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 2fr;
   text-align: center;
   background-color: var(--white);
   padding: 1rem;
   border-radius: 0.5rem;
+  min-width: 70%;
+  min-height: 60%;
 }
 h2 {
   margin: 0;
@@ -57,13 +59,17 @@ h2 {
 #prizesDivModal,
 #styleModal {
   display: grid;
-  width: 15rem;
   justify-content: center;
   border: 1px solid var(--black);
   margin-bottom: 0.1rem;
 }
 
 /***** sectInfoModal *****/
+#sectInfoModal{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 #infoDivModal input {
   width: 10rem;
   text-align: center;

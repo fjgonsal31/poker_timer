@@ -259,19 +259,28 @@ theme.addEventListener("change", () => {
 // control panel btn
 // entries
 downEntry.addEventListener("click", () => {
+  playersLeft = document.getElementById("sP").textContent.split("/")[0];
+
   if (Number(entries) != 0) {
     entries = Number(entries) - 1;
     document.getElementById("sB").textContent = entries;
-    document.getElementById("sP").textContent = playersLeft + "/" + entries;
-    playersLeft = document.getElementById("sP").textContent.split("/")[0];
     playersLeft = Number(playersLeft) - 1;
     document.getElementById("sP").textContent = playersLeft + "/" + entries;
   }
+
+  if (Number(entries) <= Number(addons)) {
+    document.getElementById("sAd").textContent = entries;
+    addons = document.getElementById("sB").textContent;
+  }
+  console.log(playersLeft + " left", addons + " addons", entries + " entries");
 });
 upEntry.addEventListener("click", () => {
   entries = Number(entries) + 1;
   document.getElementById("sB").textContent = entries;
-  document.getElementById("sP").textContent = playersLeft + "/" + entries;
+  document.getElementById("sP").textContent = entries + "/" + entries;
+  playersLeft = document.getElementById("sP").textContent.split("/")[0];
+
+  console.log(playersLeft + " left", addons + " addons", entries + " entries");
 });
 
 // rebuys
@@ -288,14 +297,20 @@ upRebuy.addEventListener("click", () => {
 
 // add ons
 downAddon.addEventListener("click", () => {
+  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+
   if (Number(addons) != 0) {
     addons = Number(addons) - 1;
     document.getElementById("sAd").textContent = addons;
   }
 });
 upAddon.addEventListener("click", () => {
-  addons = Number(addons) + 1;
-  document.getElementById("sAd").textContent = addons;
+  if (Number(addons) < Number(entries)) {
+    addons = Number(addons) + 1;
+    document.getElementById("sAd").textContent = addons;
+  }
+
+  console.log(playersLeft + " left", addons + " addons", entries + " entries");
 });
 
 // players
@@ -306,6 +321,8 @@ downPlayer.addEventListener("click", () => {
     playersLeft = Number(playersLeft) - 1;
     document.getElementById("sP").textContent = playersLeft + "/" + entries;
   }
+
+  console.log(playersLeft + " left", addons + " addons", entries + " entries");
 });
 upPlayer.addEventListener("click", () => {
   playersLeft = document.getElementById("sP").textContent.split("/")[0];
@@ -314,4 +331,6 @@ upPlayer.addEventListener("click", () => {
     playersLeft = Number(playersLeft) + 1;
     document.getElementById("sP").textContent = playersLeft + "/" + entries;
   }
+
+  console.log(playersLeft + " left", addons + " addons", entries + " entries");
 });
