@@ -39,8 +39,8 @@
           step="1"
         />
         <div id="infoDivBtn" class="buttons">
-          <button id="infoDivSend" type="submit" class="acept">Enviar</button>
-          <button id="infoDivReset" class="cancel">Resetear</button>
+          <button id="infoDivSend" type="submit" class="acept" disabled>Enviar</button>
+          <button id="infoDivReset" class="cancel" disabled>Resetear</button>
         </div>
       </div>
       <div id="prizesDivModal">
@@ -59,12 +59,11 @@
             name="paidPlaces"
             id="paidPlaces"
             placeholder="Puestos premiados"
-            min="1"
+            min="0"
           />
         </div>
         <div id="prizesDiv" class="buttons">
-          <button id="prizesGenerateBtn" class="info">Generar premios</button>
-          <button id="prizesSendBtn" class="acept">Enviar</button>
+          <button id="prizesGenerateBtn" class="info" disabled>Generar premios</button>
         </div>
         <table id="tablePrizes">
           <thead>
@@ -76,6 +75,9 @@
           </thead>
           <tbody id="tbodyPrizes"></tbody>
         </table>
+        <div id="prizesDiv2" class="buttons">
+          <button id="prizesSendBtn" class="acept" disabled>Enviar</button>
+        </div>
       </div>
       <div id="styleModal">
         <h2>Color del tema</h2>

@@ -66,6 +66,7 @@ const sendPrizesBtn = document.getElementById("prizesSendBtn");
 const closeM = document.getElementById("close");
 
 //***** elementos *****
+const inputs = document.querySelectorAll(".input");
 const modal = document.getElementById("myModal");
 const dateM = document.getElementById("dateModal");
 const nameM = document.getElementById("nameModal");
@@ -76,6 +77,7 @@ const totalPrize = document.getElementById("totalPrize");
 const paidPlaces = document.getElementById("paidPlaces");
 const tablePrizes = document.getElementById("tablePrizes");
 const tbodyPrizes = document.getElementById("tbodyPrizes");
+let totalRow = document.getElementById("totalRow");
 const theme = document.getElementById("themeColor");
 
 //------------ funciones ------------
@@ -101,6 +103,51 @@ function updateTime() {
 function updateCurrentTime() {
   currentTime.textContent = updateTime();
 }
+
+// actualizar fila total premios
+function updateTotals() {
+  let totalPercent = 0;
+  let totalPrize = 0;
+
+  arrayPrizes.forEach((item) => {
+    totalPercent += item.percent;
+    totalPrize += item.prize;
+  });
+
+  totalRow = document.getElementById("totalRow");
+  if (!totalRow) {
+    totalRow = document.createElement("tr");
+    totalRow.id = "totalRow";
+    let tdTotalPlace = document.createElement("td");
+    tdTotalPlace.textContent = "Total";
+    totalRow.appendChild(tdTotalPlace);
+
+    let tdTotalPercent = document.createElement("td");
+    tdTotalPercent.textContent = totalPercent;
+    totalRow.appendChild(tdTotalPercent);
+
+    let tdTotalPrize = document.createElement("td");
+    tdTotalPrize.textContent = totalPrize;
+    totalRow.appendChild(tdTotalPrize);
+
+    tbodyPrizes.appendChild(totalRow);
+  } else {
+    totalRow.cells[1].textContent = totalPercent;
+    totalRow.cells[2].textContent = totalPrize;
+  }
+
+  if (totalRow.cells[1].textContent != 100) {
+    totalRow.cells[0].style.color = "var(--red)";
+    totalRow.cells[1].style.color = "var(--red)";
+    totalRow.cells[2].style.color = "var(--red)";
+    sendPrizesBtn.disabled = true;
+  } else {
+    totalRow.cells[0].style.color = "var(--black)";
+    totalRow.cells[1].style.color = "var(--black)";
+    totalRow.cells[2].style.color = "var(--black)";
+    sendPrizesBtn.disabled = false;
+  }
+}
 //------------ ejecucion ------------
 
 // abrir modal settings
@@ -111,6 +158,10 @@ settingsBtn.addEventListener("click", () => {
 // cerrar modal settings
 closeM.addEventListener("click", () => {
   modal.style.display = "none";
+
+  if (paidPlaces.value == 0) {
+    paidPlaces.value = "";
+  }
 });
 
 // mostrar hora
@@ -119,7 +170,21 @@ setInterval(updateCurrentTime, 1000);
 
 // información del torneo
 dateM.value = `${day}/${month}/${year}`;
-infoDivSend.addEventListener("click", () => {
+
+inputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    let allFilled = Array.from(inputs).every(
+      (input) => input.value.trim() !== ""
+    );
+    sendInfoBtnM.disabled = !allFilled;
+    resetInfoBtnM.disabled = false;
+    if (input.value.trim().length > 0) { // revisar!!!!!!!!!!!!!!!!!!
+      resetInfoBtnM.disabled = true;
+    }
+  });
+});
+
+sendInfoBtnM.addEventListener("click", () => {
   title.textContent = nameM.value;
   stack.textContent = parseInt(stackM.value).toLocaleString();
   buyIn.textContent = parseInt(buyInM.value).toLocaleString();
@@ -135,17 +200,26 @@ resetInfoBtnM.addEventListener("click", () => {
   stackM.value = "";
   buyInM.value = "";
   endRebuysM.value = "";
+  resetInfoBtnM.disabled = true;
 });
 
-// generate premios
+// generar premios
 let arrayPrizes = [];
+
+paidPlaces.addEventListener("change", () => {
+  generatePrizes.disabled = true;
+
+  if (paidPlaces.value > 0) {
+    generatePrizes.disabled = false;
+  }
+});
 generatePrizes.addEventListener("click", () => {
   let distribucion = [];
+
   if (Number(paidPlaces.value) > 0) {
     sendPrizesBtn.style.display = "block";
     tbodyPrizes.textContent = "";
 
-    // hacer tabla en BD
     switch (Number(paidPlaces.value)) {
       case 3:
         distribucion = [
@@ -172,40 +246,62 @@ generatePrizes.addEventListener("click", () => {
         ];
         break;
       default:
-        distribucion = "Número de jugadores no válido. Debe estar entre 3 y 5.";
-        break;
+        alert("Número de jugadores no válido. Debe estar entre 3 y 5.");
+        return;
     }
 
-    if (typeof distribucion !== "string") {
-      tablePrizes.style.display = "block";
+    tablePrizes.style.display = "block";
+    arrayPrizes = [];
 
-      for (let i = 0; i < distribucion.length; i++) {
-        let tr = document.createElement("tr");
-        let tdPlace = document.createElement("td");
+    distribucion.forEach((item, i) => {
+      let tr = document.createElement("tr");
 
-        tdPlace.textContent = distribucion[i].place;
-        tr.appendChild(tdPlace);
+      let tdPlace = document.createElement("td");
+      tdPlace.textContent = item.place;
+      tr.appendChild(tdPlace);
 
-        let tdPercent = document.createElement("td");
+      let tdPercent = document.createElement("td");
+      let inputPercent = document.createElement("input");
+      inputPercent.type = "number";
+      inputPercent.value = item.percent;
+      inputPercent.style.width = "50px";
+      inputPercent.addEventListener("input", (e) => {
+        let newPercent = Number(e.target.value);
+        let newPrize = (newPercent / 100) * Number(totalPrize.value);
+        inputPrize.value = newPrize;
+        arrayPrizes[i].percent = newPercent;
+        arrayPrizes[i].prize = newPrize;
+        updateTotals();
+      });
+      tdPercent.appendChild(inputPercent);
+      tr.appendChild(tdPercent);
 
-        tdPercent.textContent = distribucion[i].percent + " %";
-        tr.appendChild(tdPercent);
+      let prize = Number(totalPrize.value) * (item.percent / 100);
 
-        let tdPrize = document.createElement("td");
+      let tdPrize = document.createElement("td");
+      let inputPrize = document.createElement("input");
+      inputPrize.type = "number";
+      inputPrize.value = prize;
+      inputPrize.style.width = "80px";
+      inputPrize.addEventListener("input", (e) => {
+        let newPrize = Number(e.target.value);
+        let newPercent = (newPrize / Number(totalPrize.value)) * 100;
+        inputPercent.value = newPercent;
+        arrayPrizes[i].percent = newPercent;
+        arrayPrizes[i].prize = newPrize;
+        updateTotals();
+      });
+      tdPrize.appendChild(inputPrize);
+      tr.appendChild(tdPrize);
 
-        tdPrize.textContent =
-          Number(totalPrize.value) * (Number(distribucion[i].percent) / 100) +
-          " €";
-        tr.appendChild(tdPrize);
-
-        tbodyPrizes.appendChild(tr);
-
-        arrayPrizes[distribucion[i].place] =
-          Number(totalPrize.value) * (Number(distribucion[i].percent) / 100);
-      }
-    } else {
-      tablePrizes.style.display = "none";
-    }
+      tbodyPrizes.appendChild(tr);
+      arrayPrizes.push({
+        place: item.place,
+        percent: item.percent,
+        prize: prize,
+      });
+    });
+    updateTotals();
   }
 });
 
@@ -213,11 +309,13 @@ generatePrizes.addEventListener("click", () => {
 sendPrizesBtn.addEventListener("click", () => {
   pPrizes.style.display = "flex";
   pInfoMtt.style.display = "none";
-  console.log(arrayPrizes);
-  // arrayPrizes.forEach((value, key) => {
-  //   console.log(key + " | " + value);
-  //   // pPrizes.textContent += key + " | " + value;
-  // });
+  pPrizes.innerHTML = "";
+
+  arrayPrizes.forEach((item) => {
+    pPrizes.innerHTML += `
+      ${item.place}: ${item.prize} € |
+    `;
+  });
 });
 
 // color tema
@@ -259,78 +357,148 @@ theme.addEventListener("change", () => {
 // control panel btn
 // entries
 downEntry.addEventListener("click", () => {
-  playersLeft = document.getElementById("sP").textContent.split("/")[0];
+  entries = Number(document.getElementById("sB").textContent);
+  addons = Number(document.getElementById("sAd").textContent);
+  playersLeft = Number(document.getElementById("sP").textContent.split("/")[0]);
 
-  if (Number(entries) != 0) {
-    entries = Number(entries) - 1;
+  if (entries != 0) {
+    entries -= 1;
     document.getElementById("sB").textContent = entries;
-    playersLeft = Number(playersLeft) - 1;
+    playersLeft -= 1;
+
+    if (playersLeft < 0) {
+      playersLeft = 0;
+    }
     document.getElementById("sP").textContent = playersLeft + "/" + entries;
   }
-
-  if (Number(entries) <= Number(addons)) {
-    document.getElementById("sAd").textContent = entries;
-    addons = document.getElementById("sB").textContent;
+  if (entries == 0) {
+    downEntry.disabled = true;
+    upAddon.disabled = true;
+    upRebuy.disabled = true;
+    downPlayer.disabled = true;
+    downRebuy.disabled = true;
+    startBtn.disabled = true;
+    document.getElementById("sR").textContent = 0;
   }
-  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+  if (playersLeft == entries || entries == 0) {
+    upPlayer.disabled = true;
+    downAddon.disabled = true;
+  }
+  if (playersLeft == 0) {
+    downPlayer.disabled = true;
+  }
+  if (entries <= addons) {
+    document.getElementById("sAd").textContent = entries;
+    upAddon.disabled = true;
+  }
 });
 upEntry.addEventListener("click", () => {
-  entries = Number(entries) + 1;
+  entries = Number(document.getElementById("sB").textContent);
+  addons = Number(document.getElementById("sAd").textContent);
+  playersLeft = Number(document.getElementById("sP").textContent.split("/")[0]);
+  entries += 1;
   document.getElementById("sB").textContent = entries;
-  document.getElementById("sP").textContent = entries + "/" + entries;
-  playersLeft = document.getElementById("sP").textContent.split("/")[0];
+  document.getElementById("sP").textContent = playersLeft + 1 + "/" + entries;
 
-  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+  if (entries != 0) {
+    downEntry.disabled = false;
+    upAddon.disabled = false;
+    upRebuy.disabled = false;
+    downPlayer.disabled = false;
+    startBtn.disabled = false;
+  }
 });
 
 // rebuys
 downRebuy.addEventListener("click", () => {
-  if (Number(rebuys) != 0) {
-    rebuys = Number(rebuys) - 1;
+  rebuys = Number(document.getElementById("sR").textContent);
+
+  if (rebuys != 0) {
+    rebuys -= 1;
     document.getElementById("sR").textContent = rebuys;
+  }
+  if (rebuys == 0) {
+    downRebuy.disabled = true;
   }
 });
 upRebuy.addEventListener("click", () => {
-  rebuys = Number(rebuys) + 1;
+  rebuys = Number(document.getElementById("sR").textContent);
+  rebuys += 1;
   document.getElementById("sR").textContent = rebuys;
+
+  if (rebuys != 0) {
+    downRebuy.disabled = false;
+  }
 });
 
 // add ons
 downAddon.addEventListener("click", () => {
-  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+  entries = Number(document.getElementById("sB").textContent);
+  addons = Number(document.getElementById("sAd").textContent);
+  playersLeft = Number(document.getElementById("sP").textContent.split("/")[0]);
 
-  if (Number(addons) != 0) {
-    addons = Number(addons) - 1;
+  if (addons != 0) {
+    addons -= 1;
     document.getElementById("sAd").textContent = addons;
+  }
+  if (addons <= entries) {
+    downAddon.disabled = false;
+  }
+  if (addons < entries) {
+    upAddon.disabled = false;
+  }
+  if (addons == 0) {
+    downAddon.disabled = true;
+    upAddon.disabled = false;
   }
 });
 upAddon.addEventListener("click", () => {
-  if (Number(addons) < Number(entries)) {
-    addons = Number(addons) + 1;
+  entries = Number(document.getElementById("sB").textContent);
+  addons = Number(document.getElementById("sAd").textContent);
+  playersLeft = Number(document.getElementById("sP").textContent.split("/")[0]);
+
+  if (addons < entries) {
+    addons += 1;
     document.getElementById("sAd").textContent = addons;
   }
-
-  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+  if (addons == entries) {
+    upAddon.disabled = true;
+  }
+  if (addons != 0) {
+    downAddon.disabled = false;
+  }
 });
 
 // players
 downPlayer.addEventListener("click", () => {
-  playersLeft = document.getElementById("sP").textContent.split("/")[0];
+  entries = Number(document.getElementById("sB").textContent);
+  addons = Number(document.getElementById("sAd").textContent);
+  playersLeft = Number(document.getElementById("sP").textContent.split("/")[0]);
 
-  if (Number(playersLeft) != 0) {
-    playersLeft = Number(playersLeft) - 1;
+  if (playersLeft != 0) {
+    playersLeft -= 1;
     document.getElementById("sP").textContent = playersLeft + "/" + entries;
   }
-
-  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+  if (playersLeft == 0 || entries == 0) {
+    downPlayer.disabled = true;
+  }
+  if (playersLeft < entries) {
+    upPlayer.disabled = false;
+  }
 });
 upPlayer.addEventListener("click", () => {
-  playersLeft = document.getElementById("sP").textContent.split("/")[0];
+  entries = Number(document.getElementById("sB").textContent);
+  addons = Number(document.getElementById("sAd").textContent);
+  playersLeft = Number(document.getElementById("sP").textContent.split("/")[0]);
 
-  if (Number(playersLeft) < Number(entries)) {
-    playersLeft = Number(playersLeft) + 1;
+  if (playersLeft < entries) {
+    playersLeft += 1;
     document.getElementById("sP").textContent = playersLeft + "/" + entries;
   }
-
-  console.log(playersLeft + " left", addons + " addons", entries + " entries");
+  if (playersLeft == entries) {
+    upPlayer.disabled = true;
+  }
+  if (playersLeft != 0) {
+    downPlayer.disabled = false;
+  }
 });

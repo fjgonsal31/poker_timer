@@ -20,6 +20,7 @@
   border-radius: 0.5rem;
   min-width: 70%;
   min-height: 60%;
+  gap: 0.5rem;
 }
 h2 {
   margin: 0;
@@ -35,6 +36,9 @@ h2 {
   font-size: 0.75rem;
 }
 .buttons {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   margin: 1rem;
 }
 .acept,
@@ -62,13 +66,16 @@ h2 {
   justify-content: center;
   border: 1px solid var(--black);
   margin-bottom: 0.1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
 /***** sectInfoModal *****/
-#sectInfoModal{
+#sectInfoModal {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 0.5rem;
 }
 #infoDivModal input {
   width: 10rem;
@@ -90,11 +97,6 @@ h2 {
 #inputPrizes {
   padding-top: 0.35rem;
 }
-#prizesDiv {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
 #totalPrize {
   margin-right: 0.35rem;
   font-size: 0.75rem;
@@ -115,6 +117,7 @@ h2 {
 }
 #tablePrizes th {
   background-color: var(--blue5);
+  width: 5rem;
 }
 #tablePrizes th,
 #tablePrizes td {
@@ -123,6 +126,10 @@ h2 {
 #tablePrizes tr:nth-child(even) {
   background-color: var(--gray1);
 }
+#totalRow {
+  background-color: var(--blue5) !important;
+  font-weight: bold;
+}
 
 /* styleModal */
 #styleModal {
@@ -130,6 +137,7 @@ h2 {
 }
 #themeColor {
   margin: 0.5rem;
+  padding: 0.25rem;
   font-size: 0.75rem;
   width: max-content;
 }
@@ -139,6 +147,8 @@ h2 {
   border: 1px solid var(--black);
   margin-left: 0.1rem;
   justify-items: center;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 #sectBlindsSelect {
   margin: 0.5rem;
@@ -162,4 +172,5 @@ h2 {
   grid-column: span 2;
   width: auto;
   text-align: center;
+  margin: 1rem;
 }
