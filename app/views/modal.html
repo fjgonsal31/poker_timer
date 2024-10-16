@@ -2,68 +2,63 @@
   <div class="modal-content">
     <section id="sectInfoModal">
       <div id="infoDivModal">
-        <h2>Información del Torneo</h2>
-        <input type="text" name="dateModal" id="dateModal" class="input" />
+        <h4>Información del Torneo</h4>
+        <input type="text" id="dateModal" class="input" />
         <input
           type="text"
-          name="nameModal"
           id="nameModal"
-          class="input"
+          class="input inputInfo"
           placeholder="Nombre del torneo"
-          max="50"
         />
         <input
-          type="number"
-          name="stackModal"
+          type="text"
           id="stackModal"
-          class="input"
+          class="input inputInfo"
           placeholder="Stack inicial"
-          min="1"
-          step="1"
         />
         <input
-          type="number"
-          name="buyInModal"
+          type="text"
           id="buyInModal"
-          class="input"
+          class="input inputInfo"
           placeholder="Entrada"
-          min="1"
         />
         <input
-          type="number"
-          name="endRebuysModal"
+          type="text"
           id="endRebuysModal"
-          class="input"
+          class="input inputInfo"
           placeholder="Nivel fin recompras (incl.)"
-          min="1"
-          step="1"
         />
         <div id="infoDivBtn" class="buttons">
-          <button id="infoDivSend" type="submit" class="acept" disabled>Enviar</button>
+          <button id="infoDivSend" type="submit" class="acept" disabled>
+            Enviar
+          </button>
           <button id="infoDivReset" class="cancel" disabled>Resetear</button>
         </div>
       </div>
       <div id="prizesDivModal">
-        <h2>Premios</h2>
+        <h4 id="premios">Premios</h4>
         <div id="inputPrizes">
           <input
             type="text"
             name="totalPrize"
             id="totalPrize"
+            class="input"
             placeholder="Acumulado"
-            value="1000"
             readonly
           />€
           <input
-            type="number"
+            type="text"
             name="paidPlaces"
             id="paidPlaces"
+            class="input"
             placeholder="Puestos premiados"
-            min="0"
           />
-        </div>
-        <div id="prizesDiv" class="buttons">
-          <button id="prizesGenerateBtn" class="info" disabled>Generar premios</button>
+          <div id="prizesDiv" class="buttons">
+            <button id="prizesGenerateBtn" class="info" disabled>
+              Generar
+            </button>
+            <button id="prizesSendBtn" class="acept" disabled>Enviar</button>
+          </div>
         </div>
         <table id="tablePrizes">
           <thead>
@@ -74,13 +69,17 @@
             </tr>
           </thead>
           <tbody id="tbodyPrizes"></tbody>
+          <tfoot>
+            <tr id="totalRow">
+              <td><strong>Total</strong></td>
+              <td><strong>0%</strong></td>
+              <td><strong>0.00 €</strong></td>
+            </tr>
+          </tfoot>
         </table>
-        <div id="prizesDiv2" class="buttons">
-          <button id="prizesSendBtn" class="acept" disabled>Enviar</button>
-        </div>
       </div>
       <div id="styleModal">
-        <h2>Color del tema</h2>
+        <h4>Color del tema</h4>
         <select name="themeColor" id="themeColor">
           <option value="blue">Azul</option>
           <option value="red">Rojo</option>
@@ -89,7 +88,7 @@
       </div>
     </section>
     <section id="sectBlindsModal">
-      <h2>Niveles de juego</h2>
+      <h4>Niveles de juego</h4>
       <select name="sectBlindsSelect" id="sectBlindsSelect">
         <option value="1">Mtt 20 jugadores</option>
         <option value="2">Mtt 15 jugadores</option>
