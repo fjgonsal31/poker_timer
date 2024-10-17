@@ -3,25 +3,29 @@
     <section id="sectInfoModal">
       <div id="infoDivModal">
         <h4>Información del Torneo</h4>
-        <input type="text" id="dateModal" class="input" />
-        <input
-          type="text"
-          id="nameModal"
-          class="input inputInfo"
-          placeholder="Nombre del torneo"
-        />
-        <input
-          type="text"
-          id="stackModal"
-          class="input inputInfo"
-          placeholder="Stack inicial"
-        />
-        <input
-          type="text"
-          id="buyInModal"
-          class="input inputInfo"
-          placeholder="Entrada"
-        />
+        <div>
+          <input type="text" id="dateModal" class="input" />
+          <input
+            type="text"
+            id="nameModal"
+            class="input inputInfo"
+            placeholder="Nombre del torneo"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            id="stackModal"
+            class="input inputInfo"
+            placeholder="Stack inicial"
+          />
+          <input
+            type="text"
+            id="buyInModal"
+            class="input inputInfo"
+            placeholder="Entrada"
+          />
+        </div>
         <input
           type="text"
           id="endRebuysModal"
@@ -40,18 +44,17 @@
         <div id="inputPrizes">
           <input
             type="text"
-            name="totalPrize"
             id="totalPrize"
             class="input"
-            placeholder="Acumulado"
+            placeholder="Total"
             readonly
+            value="100000"
           />€
           <input
             type="text"
-            name="paidPlaces"
             id="paidPlaces"
             class="input"
-            placeholder="Puestos premiados"
+            placeholder="Puestos"
           />
           <div id="prizesDiv" class="buttons">
             <button id="prizesGenerateBtn" class="info" disabled>
@@ -79,8 +82,8 @@
         </table>
       </div>
       <div id="styleModal">
-        <h4>Color del tema</h4>
-        <select name="themeColor" id="themeColor">
+        <h4>Tema</h4>
+        <select id="themeColor">
           <option value="blue">Azul</option>
           <option value="red">Rojo</option>
           <option value="green">Verde</option>
@@ -88,14 +91,19 @@
       </div>
     </section>
     <section id="sectBlindsModal">
-      <h4>Niveles de juego</h4>
-      <select name="sectBlindsSelect" id="sectBlindsSelect">
-        <option value="1">Mtt 20 jugadores</option>
-        <option value="2">Mtt 15 jugadores</option>
-        <option value="3">Mtt 10 jugadores</option>
+      <h4>Niveles</h4>
+      <select id="sectBlindsSelect">
+        <option value="custom">Personalizado</option>
       </select>
+      <input
+        type="text"
+        id="titleBlindsLevels"
+        placeholder="Nombre Nivel personalizado"
+      />
+      <button id="saveLevel" class="acept">Guardar</button>
+      <button id="deleteLevel" class="cancel">Eliminar</button>
       <div id="sectBlindsDiv">
-        <table id="blindsLevels">
+        <table id="tableBlindsLevels">
           <thead>
             <tr>
               <th>Nivel</th>
@@ -105,64 +113,30 @@
               <th>Tiempo</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tbodyLevels">
             <tr>
-              <td>1</td>
               <td>
-                <input class="number1" type="number" value="100.000" />
+                <input type="number" class="inputLevel" min="1" step="1" />
               </td>
               <td>
-                <input class="number1" type="number" value="200.000" />
+                <input type="number" class="inputLevel" min="100" step="100" />
               </td>
               <td>
-                <input class="number1" type="number" value="200.000" />
+                <input type="number" class="inputLevel" min="100" step="100" />
               </td>
-              <td><input class="number2" type="number" value="15" /> min</td>
+              <td>
+                <input type="number" class="inputLevel" min="100" step="100" />
+              </td>
+              <td>
+                <input type="number" class="inputLevel" step="1" min="10" />
+              </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <input class="number1" type="number" value="100.000" />
-              </td>
-              <td>
-                <input class="number1" type="number" value="200.000" />
-              </td>
-              <td>
-                <input class="number1" type="number" value="200.000" />
-              </td>
-              <td><input class="number2" type="number" value="15" /> min</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>100.000</td>
-              <td>200.000</td>
-              <td>200.000</td>
-              <td>15 min</td>
-            </tr>
-            <tr>
-              <td style="border: 1px solid black">4</td>
-              <td style="border: 1px solid black">100.000</td>
-              <td style="border: 1px solid black">200.000</td>
-              <td style="border: 1px solid black">200.000</td>
-              <td style="border: 1px solid black">15 min</td>
-            </tr>
-            <tr>
-              <td style="font-weight: bold">25</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td style="font-weight: bold">375 min</td>
-            </tr>
+
+            <tr></tr>
           </tbody>
         </table>
-        <input
-          type="text"
-          name="titleBlindsLevels"
-          id="titleBlindsLevels"
-          placeholder="Nombre Nivel personalizado"
-        />
         <div>
-          <button id="" class="acept">Guardar y aplicar</button>
+          <button id="sendLevel" class="acept">Enviar</button>
           <button id="" class="cancel">Limpiar</button>
         </div>
       </div>

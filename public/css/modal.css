@@ -13,12 +13,11 @@
 }
 .modal-content {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 3fr;
   text-align: center;
   background-color: var(--white);
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
-  width: 70%;
   gap: 0.5rem;
 }
 h4 {
@@ -64,6 +63,10 @@ h4 {
   border: 1px solid var(--black);
   padding: 0.5rem;
   border-radius: 5px;
+  height: 100%;
+  justify-self: center;
+  justify-content: center;
+  justify-items: center;
 }
 
 /***** sectInfoModal *****/
@@ -76,15 +79,23 @@ h4 {
 #dateModal {
   width: min-content;
 }
+#infoDivModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #infoDivModal input {
   text-align: center;
   justify-self: center;
 }
-#prizesDivModal {
-  padding-bottom: 0.35rem;
+#endRebuysModal {
+  width: 10rem;
 }
 
 /* prizesDivModal */
+#prizesDivModal {
+  padding-bottom: 0.35rem;
+}
 #premios {
   margin-bottom: 0;
 }
@@ -103,15 +114,12 @@ h4 {
 #totalPrize {
   margin-right: 0.35rem;
   font-size: 0.75rem;
-  width: 3.75rem;
+  width: 2.75rem;
 }
 #paidPlaces {
   margin-left: 0.75rem;
   font-size: 0.75rem;
-  width: 6.5rem;
-}
-#prizesSendBtn {
-  display: none;
+  width: 2.75rem;
 }
 #tablePrizes {
   display: none;
@@ -128,7 +136,6 @@ h4 {
 }
 #tablePrizes td {
   padding: 0;
-  /* width: 100%; */
   height: 100%;
   box-sizing: border-box;
 }
@@ -142,6 +149,8 @@ h4 {
 
 /* styleModal */
 #styleModal {
+  display: flex;
+  flex-direction: column;
   justify-items: center;
 }
 #themeColor {
@@ -149,6 +158,7 @@ h4 {
   padding: 0.25rem;
   font-size: 0.75rem;
   width: max-content;
+  align-self: center;
 }
 
 /***** sectBlindsModal *****/
@@ -168,18 +178,40 @@ h4 {
   grid-template-columns: auto;
   justify-items: center;
 }
-#blindsLevels {
+#tableBlindsLevels {
   border-collapse: collapse;
 }
 #titleBlindsLevels {
   width: 11rem;
   margin: 0.5rem;
 }
+#tableBlindsLevels {
+  border-collapse: collapse;
+  align-self: center;
+}
+#tableBlindsLevels th {
+  background-color: var(--blue5);
+  width: 5rem;
+}
+#tableBlindsLevels th,
+#tableBlindsLevels td {
+  border: 1px solid black;
+}
+#tableBlindsLevels td {
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+#tableBlindsLevels tr:nth-child(even) {
+  background-color: var(--gray1);
+}
+.inputLevel {
+  width: 3rem;
+  text-align: center;
+}
 
 /***** button close *****/
 #closeBtn {
   grid-column: span 2;
-  width: auto;
   text-align: center;
-  margin: 1rem 1rem 0 1rem;
 }
