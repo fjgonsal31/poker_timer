@@ -1,0 +1,1 @@
+tabla premios generados, decimales y redondeos

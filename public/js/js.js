@@ -60,31 +60,32 @@ const pPrizes = document.getElementById("prizes");
 
 //------------ variables Modal------------
 //***** botones *****
-const sendInfoBtnM = document.getElementById("infoDivSend");
-const resetInfoBtnM = document.getElementById("infoDivReset");
-const generatePrizesBtnM = document.getElementById("prizesGenerateBtn");
-const sendPrizesBtnM = document.getElementById("prizesSendBtn");
-const closeM = document.getElementById("close");
+const sendInfoBtnM = document.getElementById("infoDivSendModal");
+const resetInfoBtnM = document.getElementById("infoDivResetModal");
+const generatePrizesBtnM = document.getElementById("prizesGenerateBtnModal");
+const sendPrizesBtnM = document.getElementById("prizesSendBtnModal");
+const saveLevelBtnM = document.getElementById("saveLevelBtnModal");
+const closeM = document.getElementById("closeModal");
 
 //***** elementos *****
-const inputs = document.querySelectorAll(".inputInfo");
-const modal = document.getElementById("myModal");
+const inputsM = document.querySelectorAll(".inputInfoModal");
+const modalM = document.getElementById("myModal");
 const dateM = document.getElementById("dateModal");
 const nameM = document.getElementById("nameModal");
 const stackM = document.getElementById("stackModal");
 const buyInM = document.getElementById("buyInModal");
 const endRebuysM = document.getElementById("endRebuysModal");
-const totalPrize = document.getElementById("totalPrize");
-const paidPlaces = document.getElementById("paidPlaces");
-const tablePrizes = document.getElementById("tablePrizes");
-const tbodyPrizes = document.getElementById("tbodyPrizes");
-let totalRow = document.getElementById("totalRow");
-const theme = document.getElementById("themeColor");
-const selectLevels = document.getElementById("sectBlindsSelect");
-const tableBlindsLevels = document.getElementById("tableBlindsLevels");
-const tbodyLevels = document.getElementById("tbodyLevels");
+const totalPrizeM = document.getElementById("totalPrizeModal");
+const paidPlacesM = document.getElementById("paidPlacesModal");
+const tablePrizesM = document.getElementById("tablePrizesModal");
+const tbodyPrizesM = document.getElementById("tbodyPrizesModal");
+let totalPrizesRowM = document.getElementById("totalPrizesRowModal");
+const themeM = document.getElementById("themeColorModal");
+const selectLevelsM = document.getElementById("selectLevelsModal");
+const tableLevelsM = document.getElementById("tableLevelsModal");
+const tbodyLevelsM = document.getElementById("tbodyLevelsModal");
 
-const levels = {
+const objLevels = {
   lento: {
     name: "Lento",
     levels: [
@@ -633,43 +634,53 @@ function updateCurrentTime() {
 // actualizar fila total premios
 function updateTotals() {
   let totalPercent = 0;
-  let totalPrize = Number(document.getElementById("totalPrize").value);
+  let totalPrize = 0;
 
   arrayPrizes.forEach((item) => {
     totalPercent += item.percent;
     totalPrize += item.prize;
   });
 
-  totalRow = document.getElementById("totalRow");
+  totalPrizesRowM = document.getElementById("totalPrizesRowModal");
+  totalPrizesRowM.cells[1].textContent = removeDecimals(totalPercent);
+  totalPrizesRowM.cells[2].textContent = removeDecimals(totalPrize);
 
-  totalRow.cells[1].textContent = totalPercent.toFixed(2);
-  totalRow.cells[2].textContent = totalPrize;
-
-  if (totalRow.cells[1].textContent != 100) {
-    totalRow.cells[0].style.color = "var(--red)";
-    totalRow.cells[1].style.color = "var(--red)";
-    totalRow.cells[2].style.color = "var(--red)";
+  if (totalPrizesRowM.cells[1].textContent != 100) {
+    totalPrizesRowM.cells[0].style.color = "var(--red)";
+    totalPrizesRowM.cells[1].style.color = "var(--red)";
+    totalPrizesRowM.cells[2].style.color = "var(--red)";
     sendPrizesBtnM.disabled = true;
   } else {
-    totalRow.cells[0].style.color = "var(--black)";
-    totalRow.cells[1].style.color = "var(--black)";
-    totalRow.cells[2].style.color = "var(--black)";
+    totalPrizesRowM.cells[0].style.color = "var(--black)";
+    totalPrizesRowM.cells[1].style.color = "var(--black)";
+    totalPrizesRowM.cells[2].style.color = "var(--black)";
     sendPrizesBtnM.disabled = false;
+  }
+}
+
+// redondear decimales insignificantes
+function removeDecimals(num, threshold = 0.01) {
+  let roundedNum = parseFloat(num.toFixed(2));
+
+  if (Math.abs(roundedNum - Math.round(roundedNum)) < threshold) {
+    return Math.round(roundedNum);
+  } else {
+    return roundedNum;
   }
 }
 //------------ ejecucion ------------
 // //////////////////////////// MAIN ////////////////////////////
-// abrir modal settings
+// abrir modalM settings
 settingsBtn.addEventListener("click", () => {
-  modal.style.display = "flex";
+  modalM.style.display = "flex";
 });
 
-// cerrar modal settings
+// cerrar modalM settings
 closeM.addEventListener("click", () => {
-  modal.style.display = "none";
+  modalM.style.display = "none";
 
-  if (paidPlaces.value == 0) {
-    paidPlaces.value = "";
+  if (paidPlacesM.value == 0) {
+    paidPlacesM.value = "";
   }
 });
 
@@ -838,9 +849,9 @@ upPlayer.addEventListener("click", () => {
 // ******************** INFORMACION DEL TORNEO ********************
 dateM.value = `${day}/${month}/${year}`;
 
-inputs.forEach((input) => {
+inputsM.forEach((input) => {
   input.addEventListener("input", () => {
-    let allFilled = Array.from(inputs).every(
+    let allFilled = Array.from(inputsM).every(
       (input) => input.value.trim() !== ""
     );
     sendInfoBtnM.disabled = !allFilled;
@@ -851,8 +862,8 @@ inputs.forEach((input) => {
 // click en enviar
 sendInfoBtnM.addEventListener("click", () => {
   title.textContent = nameM.value;
-  stack.textContent = parseInt(stackM.value).toLocaleString();
-  buyIn.textContent = parseInt(buyInM.value).toLocaleString();
+  stack.textContent = parseInt(stackM.value).toLocaleString("es-ES");
+  buyIn.textContent = parseInt(buyInM.value).toLocaleString("es-ES");
   endRebuys.textContent = " Nivel " + parseInt(endRebuysM.value);
   sendInfoBtnM.disabled = true;
 });
@@ -874,11 +885,11 @@ resetInfoBtnM.addEventListener("click", () => {
 // generar premios
 let arrayPrizes = [];
 
-paidPlaces.addEventListener("input", () => {
+paidPlacesM.addEventListener("input", () => {
   generatePrizesBtnM.disabled = true;
-  tablePrizes.style.display = "none";
+  tablePrizesM.style.display = "none";
 
-  if (paidPlaces.value > 0 && Number(totalPrize.value) != 0) {
+  if (paidPlacesM.value > 0 && Number(totalPrizeM.value) != 0) {
     generatePrizesBtnM.disabled = false;
   }
 });
@@ -960,60 +971,64 @@ generatePrizesBtnM.addEventListener("click", () => {
     ],
   };
 
-  const paidPlacesValue = Number(paidPlaces.value);
+  const paidPlacesValue = Number(paidPlacesM.value);
 
   if (paidPlacesValue >= 2 && paidPlacesValue <= 10) {
     sendPrizesBtnM.style.display = "block";
-    tbodyPrizes.textContent = "";
-    tablePrizes.style.display = "block";
+    tbodyPrizesM.textContent = "";
+    tablePrizesM.style.display = "block";
     arrayPrizes = [];
 
+    // crear tabla de premios
     distribucion[paidPlacesValue].forEach((item, i) => {
       let tr = document.createElement("tr");
-
       let tdPlace = document.createElement("td");
+      let tdPercent = document.createElement("td");
+      let inputPercent = document.createElement("input");
+      let tdPrize = document.createElement("td");
+      let inputPrize = document.createElement("input");
+      let prize = Number(totalPrizeM.value * (item.percent / 100));
+      console.log(typeof prize);
+
       tdPlace.textContent = item.place;
       tr.appendChild(tdPlace);
 
-      let tdPercent = document.createElement("td");
-      let inputPercent = document.createElement("input");
       inputPercent.type = "number";
       inputPercent.value = item.percent;
-      inputPercent.style.width = "3.125rem";
+      inputPercent.style.width = "3.1rem";
       inputPercent.style.height = "0.7rem";
+      tdPercent.appendChild(inputPercent);
+      tr.appendChild(tdPercent);
 
+      inputPrize.type = "number";
+      inputPrize.value = removeDecimals(prize);
+      inputPrize.style.width = "4.5rem";
+      inputPrize.style.height = "0.7rem";
+      tdPrize.appendChild(inputPrize);
+      tr.appendChild(tdPrize);
+
+      tbodyPrizesM.appendChild(tr);
+
+      // cuando cambie cualquier input de %
       inputPercent.addEventListener("input", (e) => {
         let newPercent = Number(e.target.value);
-        let newPrize = (newPercent / 100) * Number(totalPrize.value);
+        let newPrize = (newPercent / 100) * Number(totalPrizeM.value);
         inputPrize.value = newPrize.toFixed(2);
         arrayPrizes[i].percent = newPercent;
         arrayPrizes[i].prize = newPrize;
         updateTotals();
       });
 
-      tdPercent.appendChild(inputPercent);
-      tr.appendChild(tdPercent);
-
-      let prize = Number(totalPrize.value) * (item.percent / 100);
-      let tdPrize = document.createElement("td");
-      let inputPrize = document.createElement("input");
-      inputPrize.type = "number";
-      inputPrize.value = prize.toFixed(2);
-      inputPrize.style.width = "4.5rem";
-      inputPrize.style.height = "0.7rem";
-
+      // cuando cambie cualquier input de premios
       inputPrize.addEventListener("input", (e) => {
         let newPrize = Number(e.target.value);
-        let newPercent = (newPrize / Number(totalPrize.value)) * 100;
+        let newPercent = (newPrize / Number(totalPrizeM.value)) * 100;
         inputPercent.value = newPercent.toFixed(2);
         arrayPrizes[i].percent = newPercent;
         arrayPrizes[i].prize = newPrize;
         updateTotals();
       });
 
-      tdPrize.appendChild(inputPrize);
-      tr.appendChild(tdPrize);
-      tbodyPrizes.appendChild(tr);
       arrayPrizes.push({
         place: item.place,
         percent: item.percent,
@@ -1024,7 +1039,7 @@ generatePrizesBtnM.addEventListener("click", () => {
     updateTotals();
   } else {
     alert("Número de jugadores no válido. Debe estar entre 2 y 10 (incl.)");
-    paidPlaces.value = "";
+    paidPlacesM.value = "";
     generatePrizesBtnM.disabled = true;
   }
 });
@@ -1035,16 +1050,22 @@ sendPrizesBtnM.addEventListener("click", () => {
   pPrizes.innerHTML = "";
 
   arrayPrizes.forEach((item) => {
+    let prize = item.prize.toFixed(2);
+
+    if (prize % 1 == 0) {
+      prize = item.prize.toString();
+    }
+
     pPrizes.innerHTML += `
-      ${item.place}: ${item.prize} € |
+      ${item.place}: ${prize} € |
     `;
   });
 });
 
 // ******************** TEMA ********************
 // select tema
-theme.addEventListener("change", () => {
-  let selectedColor = theme.value;
+themeM.addEventListener("change", () => {
+  let selectedColor = themeM.value;
   let themeElements = [classOne, classTwo, classThree];
   let color1 = "var(--blue1)";
   let color2 = "var(--blue2)";
@@ -1079,8 +1100,8 @@ theme.addEventListener("change", () => {
 });
 
 // ******************** NIVELES ********************
-Object.keys(levels).forEach((key) => {
-  let nameLevel = levels[key].name
+Object.keys(objLevels).forEach((key) => {
+  let nameLevel = objLevels[key].name
     .toLowerCase()
     .normalize()
     .replace(/[áàäâ]/g, "a")
@@ -1088,13 +1109,13 @@ Object.keys(levels).forEach((key) => {
     .replace(/[íìïî]/g, "i")
     .replace(/[úùüû]/g, "u");
 
-  selectLevels.innerHTML += `
-    <option value="${nameLevel}">${levels[key].name}</option>
+  selectLevelsM.innerHTML += `
+    <option value="${nameLevel}">${objLevels[key].name}</option>
   `;
 });
 
-selectLevels.addEventListener("change", () => {
-  let selectedLevel = selectLevels.value
+selectLevelsM.addEventListener("change", () => {
+  let selectedLevel = selectLevelsM.value
     .toLowerCase()
     .normalize()
     .replace(/[áàäâ]/g, "a")
@@ -1102,46 +1123,67 @@ selectLevels.addEventListener("change", () => {
     .replace(/[íìïî]/g, "i")
     .replace(/[óòöô]/g, "o")
     .replace(/[úùüû]/g, "u");
-  tbodyLevels.innerHTML = `
-      <tr>
-        <td><input type="number" class="inputLevel" min="1" step="1"></td>
-        <td><input type="number" class="inputLevel" min="100" step="100"></td>
-        <td><input type="number" class="inputLevel" min="100" step="100"></td>
-        <td><input type="number" class="inputLevel" min="100" step="100"></td>
-        <td><input type="number" class="inputLevel" step="1" min="10"></td>
-      <tr>
-    `;
-  if (levels[selectedLevel]) {
-    const nameLevel = levels[selectedLevel];
+  tbodyLevelsM.innerHTML = "";
+
+  if (selectedLevel != "custom") {
+    const nameLevel = objLevels[selectedLevel];
     let total = 0;
     let totalH = 0;
     let totalM = 0;
-    tbodyLevels.innerHTML = "";
-
+    let max = 0;
+    tbodyLevelsM.innerHTML = "";
     nameLevel.levels.forEach((level, index) => {
       total += level.time;
       totalH = parseInt(total / 60);
       totalM = (total / 60 - totalH) * 60;
-      tbodyLevels.innerHTML += `
+      max = level.level;
+      tbodyLevelsM.innerHTML += `
           <tr>
             <td>${level.level}</td>
             <td>${level.sb}</td>
             <td>${level.bb}</td>
             <td>${level.ante}</td>
             <td>${level.time}</td>
+            <td>
+              <button class="deleteLevelsRow"><i class="fa-solid fa-x"></i></button>
+              <button class="addBreakLevelsRow"><i class="fa-solid fa-pause"></i></button>
+              <button class="addRowLevels"><i class="fa-solid fa-plus"></i></button>
+            </td>
           </tr>
           `;
     });
-    tbodyLevels.innerHTML += `
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    tbodyLevelsM.innerHTML += `
+    <tr id="totalLevelsRow" class="totalRow">
+      <td>${max}</td>
+      <td class="hidden"></td>
+      <td class="hidden"></td>
+      <td class="hidden"></td>
       <td>${totalH}:${totalM} h</td>
+      <td class="hidden"></td>
     </tr>
     `;
   } else {
-    console.log("El torneo seleccionado no existe.");
+    tbodyLevelsM.innerHTML = `
+      <tr>
+        <td>1</td>
+        <td>
+          <input type="number" class="inputLevelsModal" min="100" step="100" />
+        </td>
+        <td>
+          <input type="number" class="inputLevelsModal" min="100" step="100" />
+        </td>
+        <td>
+          <input type="number" class="inputLevelsModal" min="100" step="100" />
+        </td>
+        <td>
+          <input type="number" class="inputLevelsModal" step="1" min="10" />
+        </td>
+        <td>
+          <button class="deleteLevelsRow"><i class="fa-solid fa-x"></i></button>
+          <button class="addBreakLevelsRow"><i class="fa-solid fa-pause"></i></button>
+          <button class="addRowLevels"><i class="fa-solid fa-plus"></i></button>
+        </td>
+      </tr>
+    `;
   }
 });

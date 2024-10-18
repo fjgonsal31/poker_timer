@@ -8,7 +8,7 @@
           <input
             type="text"
             id="nameModal"
-            class="input inputInfo"
+            class="input inputInfoModal"
             placeholder="Nombre del torneo"
           />
         </div>
@@ -16,54 +16,58 @@
           <input
             type="text"
             id="stackModal"
-            class="input inputInfo"
+            class="input inputInfoModal"
             placeholder="Stack inicial"
           />
           <input
             type="text"
             id="buyInModal"
-            class="input inputInfo"
+            class="input inputInfoModal"
             placeholder="Entrada"
           />
         </div>
         <input
           type="text"
           id="endRebuysModal"
-          class="input inputInfo"
+          class="input inputInfoModal"
           placeholder="Nivel fin recompras (incl.)"
         />
         <div id="infoDivBtn" class="buttons">
-          <button id="infoDivSend" type="submit" class="acept" disabled>
+          <button id="infoDivSendModal" type="submit" class="acept" disabled>
             Enviar
           </button>
-          <button id="infoDivReset" class="cancel" disabled>Resetear</button>
+          <button id="infoDivResetModal" class="cancel" disabled>
+            Resetear
+          </button>
         </div>
       </div>
       <div id="prizesDivModal">
-        <h4 id="premios">Premios</h4>
-        <div id="inputPrizes">
+        <h4>Premios</h4>
+        <div id="inputPrizesModal">
           <input
             type="text"
-            id="totalPrize"
+            id="totalPrizeModal"
             class="input"
             placeholder="Total"
             readonly
-            value="100000"
+            value="157300"
           />€
           <input
             type="text"
-            id="paidPlaces"
+            id="paidPlacesModal"
             class="input"
             placeholder="Puestos"
           />
-          <div id="prizesDiv" class="buttons">
-            <button id="prizesGenerateBtn" class="info" disabled>
+          <div id="prizesDivBtnsModal" class="buttons">
+            <button id="prizesGenerateBtnModal" class="info" disabled>
               Generar
             </button>
-            <button id="prizesSendBtn" class="acept" disabled>Enviar</button>
+            <button id="prizesSendBtnModal" class="acept" disabled>
+              Enviar
+            </button>
           </div>
         </div>
-        <table id="tablePrizes">
+        <table id="tablePrizesModal">
           <thead>
             <tr>
               <th>Puesto</th>
@@ -71,9 +75,9 @@
               <th>Premio</th>
             </tr>
           </thead>
-          <tbody id="tbodyPrizes"></tbody>
+          <tbody id="tbodyPrizesModal"></tbody>
           <tfoot>
-            <tr id="totalRow">
+            <tr id="totalPrizesRowModal" class="totalRow">
               <td><strong>Total</strong></td>
               <td><strong>0%</strong></td>
               <td><strong>0.00 €</strong></td>
@@ -83,27 +87,27 @@
       </div>
       <div id="styleModal">
         <h4>Tema</h4>
-        <select id="themeColor">
+        <select id="themeColorModal">
           <option value="blue">Azul</option>
           <option value="red">Rojo</option>
           <option value="green">Verde</option>
         </select>
       </div>
     </section>
-    <section id="sectBlindsModal">
+    <section id="sectLevelsModal">
       <h4>Niveles</h4>
-      <select id="sectBlindsSelect">
+      <select id="selectLevelsModal">
         <option value="custom">Personalizado</option>
       </select>
       <input
         type="text"
-        id="titleBlindsLevels"
-        placeholder="Nombre Nivel personalizado"
+        id="titleLevelsModal"
+        placeholder="Nombre nivel personalizado"
       />
-      <button id="saveLevel" class="acept">Guardar</button>
-      <button id="deleteLevel" class="cancel">Eliminar</button>
-      <div id="sectBlindsDiv">
-        <table id="tableBlindsLevels">
+      <button id="saveLevelsBtnModal" class="acept">Guardar</button>
+      <button id="deleteLevelsBtnModal" class="cancel">Eliminar</button>
+      <div id="levelsDivModal">
+        <table id="tableLevelsModal">
           <thead>
             <tr>
               <th>Nivel</th>
@@ -111,38 +115,66 @@
               <th>BB</th>
               <th>Ante</th>
               <th>Tiempo</th>
+              <th>Accion</th>
             </tr>
           </thead>
-          <tbody id="tbodyLevels">
+          <tbody id="tbodyLevelsModal">
             <tr>
+              <td>1</td>
               <td>
-                <input type="number" class="inputLevel" min="1" step="1" />
+                <input
+                  type="number"
+                  class="inputLevelsModal"
+                  min="100"
+                  step="100"
+                />
               </td>
               <td>
-                <input type="number" class="inputLevel" min="100" step="100" />
+                <input
+                  type="number"
+                  class="inputLevelsModal"
+                  min="100"
+                  step="100"
+                />
               </td>
               <td>
-                <input type="number" class="inputLevel" min="100" step="100" />
+                <input
+                  type="number"
+                  class="inputLevelsModal"
+                  min="100"
+                  step="100"
+                />
               </td>
               <td>
-                <input type="number" class="inputLevel" min="100" step="100" />
+                <input
+                  type="number"
+                  class="inputLevelsModal"
+                  step="1"
+                  min="10"
+                />
               </td>
               <td>
-                <input type="number" class="inputLevel" step="1" min="10" />
+                <button class="deleteLevelsRow">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+                <button class="addBreakLevelsRow">
+                  <i class="fa-solid fa-pause"></i>
+                </button>
+                <button class="addRowLevels">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
               </td>
             </tr>
-
-            <tr></tr>
           </tbody>
         </table>
-        <div>
-          <button id="sendLevel" class="acept">Enviar</button>
-          <button id="" class="cancel">Limpiar</button>
+        <div id="levelsBtnsModal">
+          <button id="sendLevelsModal" class="acept">Enviar</button>
+          <button id="resetLevelsModal" class="cancel">Limpiar</button>
         </div>
       </div>
     </section>
-    <section id="closeBtn">
-      <button id="close" class="cancel">Cerrar</button>
+    <section id="closeBtnModal">
+      <button id="closeModal" class="cancel">Cerrar</button>
     </section>
   </div>
 </div>

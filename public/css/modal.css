@@ -13,7 +13,7 @@
 }
 .modal-content {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 2fr;
   text-align: center;
   background-color: var(--white);
   padding: 0.5rem;
@@ -32,6 +32,8 @@ h4 {
 .input {
   margin: 0.25rem;
   font-size: 0.75rem;
+  text-align: center;
+  justify-self: center;
 }
 .buttons {
   display: flex;
@@ -61,9 +63,8 @@ h4 {
 #prizesDivModal,
 #styleModal {
   border: 1px solid var(--black);
-  padding: 0.5rem;
   border-radius: 5px;
-  height: 100%;
+  width: 100%;
   justify-self: center;
   justify-content: center;
   justify-items: center;
@@ -71,22 +72,22 @@ h4 {
 
 /***** sectInfoModal *****/
 #sectInfoModal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 2fr 3fr 1fr;
   justify-content: space-between;
   gap: 0.5rem;
 }
 #dateModal {
-  width: min-content;
+  width: 4rem;
+}
+#stackModal,
+#buyInModal {
+  width: 4rem;
 }
 #infoDivModal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto;
   align-items: center;
-}
-#infoDivModal input {
-  text-align: center;
-  justify-self: center;
 }
 #endRebuysModal {
   width: 10rem;
@@ -94,57 +95,57 @@ h4 {
 
 /* prizesDivModal */
 #prizesDivModal {
-  padding-bottom: 0.35rem;
-}
-#premios {
-  margin-bottom: 0;
-}
-#prizesDivModal {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
-#prizesDivModal input {
-  text-align: center;
-}
-#inputPrizes {
+#inputPrizesModal {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0.25rem;
 }
-#totalPrize {
+#totalPrizeModal {
   margin-right: 0.35rem;
   font-size: 0.75rem;
   width: 2.75rem;
 }
-#paidPlaces {
+#paidPlacesModal {
   margin-left: 0.75rem;
   font-size: 0.75rem;
   width: 2.75rem;
 }
-#tablePrizes {
+#tablePrizesModal {
   display: none;
   border-collapse: collapse;
   align-self: center;
 }
-#tablePrizes th {
+#tablePrizesModal th {
   background-color: var(--blue5);
   width: 5rem;
 }
-#tablePrizes th,
-#tablePrizes td {
+#tablePrizesModal th,
+#tablePrizesModal td {
   border: 1px solid black;
 }
-#tablePrizes td {
+#tablePrizesModal td {
   padding: 0;
   height: 100%;
   box-sizing: border-box;
 }
-#tablePrizes tr:nth-child(even) {
+#tablePrizesModal tr:nth-child(odd) {
   background-color: var(--gray1);
 }
-#totalRow {
+.totalRow {
   background-color: var(--blue5) !important;
   font-weight: bold;
+}
+.hidden {
+  border: none !important;
+  background-color: var(--white);
+}
+#prizesDivBtnsModal {
+  margin: 0;
 }
 
 /* styleModal */
@@ -153,7 +154,7 @@ h4 {
   flex-direction: column;
   justify-items: center;
 }
-#themeColor {
+#themeColorModal {
   margin: 0.5rem;
   padding: 0.25rem;
   font-size: 0.75rem;
@@ -161,57 +162,87 @@ h4 {
   align-self: center;
 }
 
-/***** sectBlindsModal *****/
-#sectBlindsModal {
+/***** sectLevelsModal *****/
+#sectLevelsModal {
   border: 1px solid var(--black);
   margin-left: 0.1rem;
   justify-items: center;
   padding: 0.5rem;
   border-radius: 5px;
 }
-#sectBlindsSelect {
+#selectLevelsModal {
   margin: 0.5rem;
   width: max-content;
 }
-#sectBlindsDiv {
+#levelsDivModal {
   display: grid;
   grid-template-columns: auto;
   justify-items: center;
 }
-#tableBlindsLevels {
+#tableLevelsModal {
   border-collapse: collapse;
 }
-#titleBlindsLevels {
+#titleLevelsModal {
+  display: none;
   width: 11rem;
   margin: 0.5rem;
 }
-#tableBlindsLevels {
+#saveLevelsBtnModal {
+  display: none;
+}
+#tableLevelsModal {
   border-collapse: collapse;
   align-self: center;
 }
-#tableBlindsLevels th {
+#tableLevelsModal th {
   background-color: var(--blue5);
   width: 5rem;
 }
-#tableBlindsLevels th,
-#tableBlindsLevels td {
+#tableLevelsModal th,
+#tableLevelsModal td {
   border: 1px solid black;
 }
-#tableBlindsLevels td {
+#tableLevelsModal td {
   padding: 0;
   height: 100%;
   box-sizing: border-box;
 }
-#tableBlindsLevels tr:nth-child(even) {
+#tableLevelsModal tr:nth-child(odd) {
   background-color: var(--gray1);
 }
-.inputLevel {
-  width: 3rem;
+#tbodyLevelsModal {
+  font-size: 1rem;
   text-align: center;
+}
+.inputLevelsModal {
+  width: 3rem;
+}
+.deleteLevelsRow,
+.addBreakLevelsRow,
+.addRowLevels {
+  padding: 0;
+  font-weight: bold;
+  font-size: 0.85rem;
+  width: 1.25rem;
+  height: 1rem;
+  flex-grow: 1;
+  height: 100%;
+}
+.deleteLevelsRow {
+  color: var(--red);
+}
+.addBreakLevelsRow {
+  color: var(--gray);
+}
+.addRowLevels {
+  color: var(--green);
+}
+#levelsBtnsModal {
+  margin: 0.5rem;
 }
 
 /***** button close *****/
-#closeBtn {
+#closeBtnModal {
   grid-column: span 2;
   text-align: center;
 }
